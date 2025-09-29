@@ -1,0 +1,120 @@
+body{
+    margin: 0;
+    background-color: #131122;
+}
+
+.audiowide-regular {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+@font-face {
+    font-family: 'Arimo';
+    src: url(../assets/fonts/Arimo-Italic-VariableFont_wght.ttf);
+}
+
+nav {
+    margin-top: 1em;
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 35px;
+    background-color:#0A0913;
+    
+  }
+
+  .navFlex {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    
+  }
+
+  
+  .navFlex h3 {    
+    padding: 0 20px; 
+    color:white;
+    font-size: 18px;
+    font-family: "Audiowide", sans-serif;   
+    
+  }
+
+  .navFlex a{
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .navFlex a.active{
+    color: #CC0A73;
+    font-weight: 500;
+  }
+
+  .navFlex h3 a:hover{
+    color: #CC0A73;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .searchBar {
+    display: flex;
+    padding: 1%;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #ffffff;
+    width: 65%;
+    border-radius: 20px;
+    margin-right: 2%;
+    margin-left: 2%;
+    border: 0;
+  }
+
+  .footer {
+  background-color: #ffffff;
+  padding-top: 80px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.footer a{
+  color: #000000b4;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.footer a.active{
+  color: #e51728;
+  font-weight: 500;
+}
+
+.footer a:hover{
+  color: #e51728;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footerRed {
+  margin-right: 10%;
+
+}
+
+.footerRow {
+  padding-left: 40px;
+  padding-right: 40px; 
+}
+
+.footerCol {
+  padding: 0px;
+}
+
+.footer p {
+  color: #717171;
+}
+
+.footer h3{
+  color: #000000;
+}
