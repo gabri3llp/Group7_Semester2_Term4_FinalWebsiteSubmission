@@ -75,7 +75,7 @@ nav {
 
   .footer {
   background-color: #ffffff;
-  padding-top: 80px;
+  padding-top: 40px;
   padding-left: 100px;
   padding-right: 100px;
 }
@@ -87,13 +87,13 @@ nav {
 }
 
 .footer a.active{
-  color: #e51728;
+  color: #0D54AC;
   font-weight: 500;
 }
 
 .footer a:hover{
-  color: #e51728;
-  font-weight: 600;
+  color: #0D54AC;
+  font-weight: 700;
   text-decoration: none;
 }
 
@@ -113,8 +113,21 @@ nav {
 
 .footer p {
   color: #717171;
+  font-family: 'Arimo';
 }
 
 .footer h3{
   color: #000000;
+  font-family: "Audiowide", sans-serif;  
+}
+
+.watchlistNav{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.description{
+  background-color: rgba(255, 255, 255, 0.80);
+  border: #000000;
 }
