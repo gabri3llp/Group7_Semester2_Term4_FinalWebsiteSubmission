@@ -23,6 +23,7 @@ nav {
     margin-right: auto;
     border-radius: 35px;
     background-color:#0A0913;
+    padding: 10px;
     
   }
 
@@ -62,7 +63,7 @@ nav {
 
   .searchBar {
     display: flex;
-    padding: 1%;
+    padding: 0.5%;
     align-items: center;
     justify-content: flex-end;
     background-color: #ffffff;
