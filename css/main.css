@@ -122,6 +122,69 @@ nav {
   font-family: "Audiowide", sans-serif;  
 }
 
+.welcome{
+  margin: 5%;
+  color: #ffffff;
+  text-align: center;
+}
+
+.welcome h1{
+  font-family: "Audiowide", sans-serif;
+}
+
+.parent {
+  position: relative;
+  top: 0;
+  left: 20px;
+}
+
+.image1 {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.image2 {
+  position: absolute;
+  top: 60px;
+  left: 30px;
+}
+
+.button{
+  width: 150px;
+  height: 50px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #CC0A73;
+  color: #ffffff;
+
+}
+
+.homeMovies{
+  padding-top: 10%;
+  margin: 1%;
+  color: #ffffff;
+}
+
+.homeMovies h2{
+  font-family: "Audiowide", sans-serif;
+}
+
+.homeMovies h5{
+  padding-right: 5%;
+} 
+
+.trendingFlex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.homeList{
+  margin: 1%;
+  margin-right: 10%;
+}
+
 .watchlist-Nav{
   display: flex;
   align-items: center;
