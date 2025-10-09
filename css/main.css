@@ -9,6 +9,11 @@ body {
   font-style: normal;
 }
 
+
+h1{
+  font-family: "Audiowide", sans-serif;
+}
+
 @font-face {
   font-family: "Arimo";
   src: url(../assets/fonts/Arimo-Italic-VariableFont_wght.ttf);
@@ -120,6 +125,85 @@ margin: 2%;
 }
 
 .watchlist-searchBar {
+.welcome{
+  margin: 5%;
+  color: #ffffff;
+  text-align: center;
+}
+
+
+.parent {
+  position: relative;
+  top: 0;
+  left: 20px;
+}
+
+.image1 {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.image2 {
+  position: absolute;
+  top: 60px;
+  left: 30px;
+}
+
+.button{
+  width: auto;
+  height: 50px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #CC0A73;
+  color: #ffffff;
+
+}
+
+.homeMovies{
+  padding-top: 10%;
+  margin: 1%;
+  color: #ffffff;
+}
+
+.homeMovies h2{
+  font-family: "Audiowide", sans-serif;
+}
+
+.homeMovies h5{
+  padding-right: 5%;
+} 
+
+.landingMovies{
+  padding-top: 10%;
+  color: #ffffff;
+}
+
+.landingMovies h2{
+  font-family: "Audiowide", sans-serif;
+}
+
+.landingList{
+  margin: 1%;
+  
+}
+
+.landingMovies h5{
+  padding-right: 5%;
+} 
+
+.trendingFlex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.homeList{
+  margin: 1%;
+  margin-right: 10%;
+}
+
+.watchlist-Nav{
   display: flex;
   
   align-items: center;
@@ -161,6 +245,31 @@ margin: 2%;
   color: #ffffff;
 }
 
-.watchlist-unwatched h1 {
-  font-family: "Audiowide", sans-serif;
+.movielanding-header {
+    height: 100vh;
+    width: 100%;
+    background-image: url(../assets/img/testImg/bryan-cranston-aaron-paul-breaking-bad.webp);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
 }
+ 
+.landing-flex{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;     
+    padding-left: 50%;  
+    padding-bottom: 10%; 
+    padding-right: 5%;
+    text-align: center;  
+    color: #ffffff;
+}
+
+.landing-flex h5{
+  font-size: 14px;
+  
+}
+
