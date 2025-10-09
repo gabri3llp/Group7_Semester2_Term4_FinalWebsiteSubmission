@@ -74,7 +74,7 @@ nav {
 }
 
 .footer {
-  background-color: #ffffff;
+  background-color: #c00b4f;
   padding-top: 40px;
   padding-left: 100px;
   padding-right: 100px;
@@ -87,12 +87,12 @@ nav {
 }
 
 .footer a.active {
-  color: #0d54ac;
+  color: #d4af37;
   font-weight: 500;
 }
 
 .footer a:hover {
-  color: #0d54ac;
+  color: #d4af37;
   font-weight: 700;
   text-decoration: none;
 }
@@ -124,7 +124,6 @@ nav {
 margin: 2%;  
 }
 
-.watchlist-searchBar {
 .welcome{
   margin: 5%;
   color: #ffffff;
