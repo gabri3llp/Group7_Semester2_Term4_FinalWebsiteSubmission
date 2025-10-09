@@ -1,0 +1,250 @@
+body{
+    margin: 0;
+    background-color: #131122;
+}
+
+.audiowide-regular {
+  font-family: "Audiowide", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+
+h1{
+  font-family: "Audiowide", sans-serif;
+}
+
+@font-face {
+    font-family: 'Arimo';
+    src: url(../assets/fonts/Arimo-Italic-VariableFont_wght.ttf);
+}
+
+nav {
+    margin-top: 1em;
+    width: 90%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 35px;
+    background-color:#0A0913;
+    padding: 10px;
+    
+  }
+
+  .navFlex {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    
+    
+  }
+
+  
+  .navFlex h3 {    
+    padding: 0 20px; 
+    color:white;
+    font-size: 18px;
+    font-family: "Audiowide", sans-serif;   
+    
+  }
+
+  .navFlex a{
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  .navFlex a.active{
+    color: #CC0A73;
+    font-weight: 500;
+  }
+
+  .navFlex h3 a:hover{
+    color: #CC0A73;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .searchBar {
+    display: flex;
+    padding: 0.5%;
+    align-items: center;
+    justify-content: flex-end;
+    background-color: #ffffff;
+    width: 65%;
+    border-radius: 20px;
+    margin-right: 2%;
+    margin-left: 2%;
+    border: 0;
+  }
+
+  .footer {
+  background-color: #ffffff;
+  padding-top: 40px;
+  padding-left: 100px;
+  padding-right: 100px;
+}
+
+.footer a{
+  color: #000000b4;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.footer a.active{
+  color: #0D54AC;
+  font-weight: 500;
+}
+
+.footer a:hover{
+  color: #0D54AC;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.footerRed {
+  margin-right: 10%;
+
+}
+
+.footerRow {
+  padding-left: 40px;
+  padding-right: 40px; 
+}
+
+.footerCol {
+  padding: 0px;
+}
+
+.footer p {
+  color: #717171;
+  font-family: 'Arimo';
+}
+
+.footer h3{
+  color: #000000;
+  font-family: "Audiowide", sans-serif;  
+}
+
+.welcome{
+  margin: 5%;
+  color: #ffffff;
+  text-align: center;
+}
+
+
+.parent {
+  position: relative;
+  top: 0;
+  left: 20px;
+}
+
+.image1 {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+
+.image2 {
+  position: absolute;
+  top: 60px;
+  left: 30px;
+}
+
+.button{
+  width: auto;
+  height: 50px;
+  border-radius: 12px;
+  font-size: 18px;
+  font-weight: 600;
+  background-color: #CC0A73;
+  color: #ffffff;
+
+}
+
+.homeMovies{
+  padding-top: 10%;
+  margin: 1%;
+  color: #ffffff;
+}
+
+.homeMovies h2{
+  font-family: "Audiowide", sans-serif;
+}
+
+.homeMovies h5{
+  padding-right: 5%;
+} 
+
+.landingMovies{
+  padding-top: 10%;
+  color: #ffffff;
+}
+
+.landingMovies h2{
+  font-family: "Audiowide", sans-serif;
+}
+
+.landingList{
+  margin: 1%;
+  
+}
+
+.landingMovies h5{
+  padding-right: 5%;
+} 
+
+.trendingFlex{
+  display: flex;
+  justify-content: space-between;
+}
+
+.homeList{
+  margin: 1%;
+  margin-right: 10%;
+}
+
+.watchlist-Nav{
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.watchlist-description{
+  background-color: rgba(255, 255, 255, 0.80);
+  border: #000000;
+}
+
+.watchlist-unwatched{
+  margin-top: 10%;
+  color: #ffffff;
+}
+
+.movielanding-header {
+    height: 100vh;
+    width: 100%;
+    background-image: url(../assets/img/testImg/bryan-cranston-aaron-paul-breaking-bad.webp);
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    
+}
+ 
+.landing-flex{
+    display:flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;     
+    padding-left: 50%;  
+    padding-bottom: 10%; 
+    padding-right: 5%;
+    text-align: center;  
+    color: #ffffff;
+}
+
+.landing-flex h5{
+  font-size: 14px;
+  
+}
+
