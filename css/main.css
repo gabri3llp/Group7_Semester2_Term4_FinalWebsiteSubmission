@@ -1,6 +1,6 @@
-body{
-    margin: 0;
-    background-color: #131122;
+body {
+  margin: 0;
+  background-color: #131122;
 }
 
 .audiowide-regular {
@@ -15,101 +15,95 @@ h1{
 }
 
 @font-face {
-    font-family: 'Arimo';
-    src: url(../assets/fonts/Arimo-Italic-VariableFont_wght.ttf);
+  font-family: "Arimo";
+  src: url(../assets/fonts/Arimo-Italic-VariableFont_wght.ttf);
 }
 
 nav {
-    margin-top: 1em;
-    width: 90%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 35px;
-    background-color:#0A0913;
-    padding: 10px;
-    
-  }
+  margin-top: 1em;
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 35px;
+  background-color: #0a0913;
+  padding: 10px;
+}
 
-  .navFlex {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    
-    
-  }
+.navFlex {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
 
-  
-  .navFlex h3 {    
-    padding: 0 20px; 
-    color:white;
-    font-size: 18px;
-    font-family: "Audiowide", sans-serif;   
-    
-  }
+.navFlex h3 {
+  padding: 0 20px;
+  color: white;
+  font-size: 18px;
+  font-family: "Audiowide", sans-serif;
+}
 
-  .navFlex a{
-    color: white;
-    font-weight: 500;
-    text-decoration: none;
-  }
+.navFlex a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+}
 
-  .navFlex a.active{
-    color: #CC0A73;
-    font-weight: 500;
-  }
+.navFlex a.active {
+  color: #cc0a73;
+  font-weight: 500;
+}
 
-  .navFlex h3 a:hover{
-    color: #CC0A73;
-    font-weight: 600;
-    text-decoration: none;
-  }
+.navFlex h3 a:hover {
+  color: #cc0a73;
+  font-weight: 600;
+  text-decoration: none;
+}
 
-  .searchBar {
-    display: flex;
-    padding: 0.5%;
-    align-items: center;
-    justify-content: flex-end;
-    background-color: #ffffff;
-    width: 65%;
-    border-radius: 20px;
-    margin-right: 2%;
-    margin-left: 2%;
-    border: 0;
-  }
+.searchBar {
+  display: flex;
+  padding: 0.5%;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #ffffff;
+  width: 65%;
+  border-radius: 20px;
+  margin-right: 2%;
+  margin-left: 2%;
+  border: 0;
+}
 
-  .footer {
+.footer {
   background-color: #ffffff;
   padding-top: 40px;
   padding-left: 100px;
   padding-right: 100px;
 }
 
-.footer a{
+.footer a {
   color: #000000b4;
   font-weight: 500;
   text-decoration: none;
 }
 
-.footer a.active{
-  color: #0D54AC;
+.footer a.active {
+  color: #0d54ac;
   font-weight: 500;
 }
 
-.footer a:hover{
-  color: #0D54AC;
+.footer a:hover {
+  color: #0d54ac;
   font-weight: 700;
   text-decoration: none;
 }
 
 .footerRed {
   margin-right: 10%;
-
 }
 
 .footerRow {
   padding-left: 40px;
-  padding-right: 40px; 
+  padding-right: 40px;
 }
 
 .footerCol {
@@ -118,14 +112,19 @@ nav {
 
 .footer p {
   color: #717171;
-  font-family: 'Arimo';
+  font-family: "Arimo";
 }
 
-.footer h3{
+.footer h3 {
   color: #000000;
-  font-family: "Audiowide", sans-serif;  
+  font-family: "Audiowide", sans-serif;
 }
 
+.watchlist-nav{
+margin: 2%;  
+}
+
+.watchlist-searchBar {
 .welcome{
   margin: 5%;
   color: #ffffff;
@@ -206,17 +205,43 @@ nav {
 
 .watchlist-Nav{
   display: flex;
+  
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-around;
+  background-color: #ffffff;
+  width: auto;
+  border-radius: 10px;
+  margin-right: 2%;
+  margin-left: 2%;
+  border: 1px;
 }
 
-.watchlist-description{
-  background-color: rgba(255, 255, 255, 0.80);
+.watchlist-searchBar input[type=text] {
+  padding: 6px;
+  margin-top: 8px;
+  font-size: 17px;
+  border: none;
+}
+
+.watchlist-searchBar-button{
+  float: right;
+  padding: 6px;
+  margin-top: 8px;
+  margin-right: 16px;
+  background: #ddd;
+  font-size: 17px;
+  border: none;
+  cursor: pointer;
+}
+
+.watchlist-description {
+  background-color: rgba(255, 255, 255, 0.8);
   border: #000000;
 }
 
-.watchlist-unwatched{
+.watchlist-unwatched {
   margin-top: 10%;
+  margin: 2%;
   color: #ffffff;
 }
 
