@@ -8,8 +8,11 @@ const options = {
 	}
 };
 
-let data= await fetch(url,options)
-	.then ((response)=>response.json())
-	.then((result)=>{return result})
-	.catch((error)=> console.error(error));
+    let data = await fetch(url, options)
+        .then((response)=> response.json())
+        .then((result) => {return result})
+        .catch((error)=> console.error(error));
+
+        console.log(data);
+      
 }();
