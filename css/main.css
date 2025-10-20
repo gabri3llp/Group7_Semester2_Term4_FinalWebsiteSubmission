@@ -74,7 +74,7 @@ nav {
 }
 
 .footer {
-  background-color: #c00b4f;
+  background-color: #860738;
   padding-top: 40px;
   padding-left: 100px;
   padding-right: 100px;
@@ -111,12 +111,12 @@ nav {
 }
 
 .footer p {
-  color: #717171;
+  color: #1f1f1f;
   font-family: "Arimo";
 }
 
 .footer h3 {
-  color: #000000;
+  color: #d4af37;
   font-family: "Audiowide", sans-serif;
 }
 

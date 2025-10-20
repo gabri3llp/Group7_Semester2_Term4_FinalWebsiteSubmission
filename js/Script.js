@@ -1,18 +1,22 @@
-!async function(){
-const url = 'https://imdb238.p.rapidapi.com/imdb/tt2911666';
-const options = {
-	method: 'GET',
-	headers: {
-		'x-rapidapi-key': '8e9074276emsh223ef54cf19b760p19a968jsn3a988955cdbc',
-		'x-rapidapi-host': 'imdb238.p.rapidapi.com'
-	}
-};
+!async function () {
+    
+    const apiKey = '0363063badd97c1049612cbbac78bf57';
+    
+    const url = `https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=en-US&page=1`;
+
+    const options = {
+        method: 'GET',
+        headers: {
+            'Accept': 'application/json'
+        }
+    };
 
     let data = await fetch(url, options)
         .then((response)=> response.json())
         .then((result) => {return result})
         .catch((error)=> console.error(error));
 
-        console.log(data[2]);
-      
+        console.log(data);
+
+    
 }();
