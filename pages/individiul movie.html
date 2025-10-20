@@ -1,125 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-compatible" content="IE-edge" />
-    <meta name="viewport" content="width-device-width,initial-scale-1.0" />
-    <meta name="author" content="Java Junkies" />
-    <meta name="Key words" content="Midnight Pictures" />
-    <title>Movie Details</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
-      crossorigin="anonymous"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Arimo:ital,wght@0,400..700;1,400..700&family=Audiowide&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="../css/main.css" />
-  </head>
-  <body>
-    <nav class="navFlex">
-      <a href="index.html"
-        ><img
-          id="logo"
-          src="../assets/img/logo.png"
-          width="30%"
-          style="padding: 1%; padding-left: 5%"
-      /></a>
-      
-      <div class="navFlex">
-        <h3><a href="../Index.html">Home</a></h3>
-        <h3><a href="">Explore</a></h3>
-        <h3><a href="Movie watchlist.html">Watchlist</a></h3>
-        <h3><a href="">About</a></h3>
-        <h3><a href="">Account</a></h3>
-      </div>
-      <div class="searchBar">
-        <i class="fa-solid fa-magnifying-glass" style="color: #3b3737; padding-right: 1.5%"></i>
-        <input type="text" id="searchControl" placeholder="Search" name="search" style="border: none" />
-        <div class="vertical-line"></div>
-        <button type="button" class="btn btn-primary position-relative" style="border: none; padding: none; background-color: #ffffff00"></button>
-      </div>
-    </nav>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <section class="container my-5">
-      <div class="row">
-        <div class="col-md-4">
-          <img src="../assets/img/sample-movie-poster.jpg" class="img-fluid rounded" alt="Movie Poster" />
-        </div>
-        <div class="col-md-8">
-          <h1>Movie Title</h1>
-          <p><strong>Release Date:</strong> 2025-01-01</p>
-          <p><strong>Genre:</strong> Action, Adventure</p>
-          <p><strong>Rating:</strong> 8.5/10</p>
-          <p><strong>Director:</strong> Jane Doe</p>
-          <p><strong>Cast:</strong> John Smith, Alice Johnson, Bob Lee</p>
-          <hr />
-          <h4>Synopsis</h4>
-          <p>
-            This is a brief description of the movie plot. It gives users an idea of what the movie is about, its main themes, and why they should watch it.
-          </p>
-          <hr />
-          <button class="btn btn-primary">Add to Watchlist</button>
-          <button class="btn btn-success">Mark as Watched</button>
-        </div>
-      </div>
-    </section>
+  <meta name="author" content="Troy Evans 251096">
+  <meta name="keywords" content="template, css, coding">
+  <title>Movie Template</title>
 
-    <footer class="footer">
-      <div class="container-fluid row footerRow">
-        <div class="container-fluid col-lg-3 col-sm-4 footerRed">
-          <img src="../assets/img/logo.png" width="100%" height="auto" style="padding-top: 5%;">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+        rel="stylesheet" 
+        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+        crossorigin="anonymous">
+  <link rel="stylesheet" href="css/main.css">
+</head>
+
+<body>
+  <!-- Nav updated to match other pages (keeps site color scheme / classes) -->
+  <nav class="navFlex">
+    <a href="Index.html">
+      <img id="logo" src="assets/img/logo.png" width="30%" style="padding: 1%; padding-left: 5%;" alt="logo" />
+    </a>
+
+    <div class="navFlex">
+      <h3><a href="Index.html">Home</a></h3>
+      <h3><a href="#">Explore</a></h3>
+      <h3><a href="#" class="active">Watchlist</a></h3>
+      <h3><a href="#">About</a></h3>
+      <h3><a href="#">Account</a></h3>
+    </div>
+
+    <div class="searchBar">
+      <i class="fa-solid fa-magnifying-glass" style="color: #3b3737; padding-right: 1.5%"></i>
+      <input type="text" id="searchControl" placeholder="Search" name="search" style="border: none" />
+      <div class="vertical-line"></div>
+    </div>
+  </nav>
+
+  <!-- Hero kept as before but now follows main.css color/padding -->
+  <section class="hero">
+    <div class="overlay"></div>
+
+    <div class="container-fluid hero-content">
+      <div class="row align-items-center">
+        <div class="col-lg-7 col-md-12 hero-left">
+          <h1 class="hero-title">MOVIE/TV SHOW<br>NAME</h1>
+
+          <div class="hero-buttons mb-3">
+            <button class="btn btn-dark me-2"><i class="bi bi-play-fill"></i>Play Now</button>
+            <button class="btn btn-outline-dark">More Information</button>
+          </div>
+
+          <div class="hero-meta mb-3">
+            <span>Year of Release</span> |
+            <span>Age Restriction</span> |
+            <span>Rating ★</span> |
+            <span>Genres</span>
+          </div>
+
+          <p class="hero-description">This is a movie that you will like probably man, idk tbh</p>
+
+          <!-- keep watchlist / watched buttons exactly as before (colors + borders) -->
+          <div class="mt-4">
+            <button id="add-watchlist" class="btn" style="background-color: #0000; color: #CC0A73; border: 2px solid #CC0A73; margin-right: 10px;">
+              Add to Watchlist
+            </button>
+            <button id="mark-watched" class="btn" style="background-color: #0000; color: gold; border: 2px solid gold;">
+              Mark as Watched
+            </button>
+          </div>
         </div>
-        <div class="container-fluid col-lg-3 col-sm-4">
-          <h3>Pages</h3>
-          <br />
-          <p><a href="../Index.html">Home</a></p>
-          <p><a href="Movie watchlist.html">Watchlist</a></p>
-          <p><a href="">Explore</a></p>
-          <p><a href="">My Account</a></p>
-        </div>
-        <div class="container-fluid col-lg-3 col-sm-4">
-          <h3>Social Media Links</h3>
-          <br />
-          <div class="container-fluid row">
-            <div class="container-fluid col footerCol">
-              <a href="https://www.instagram.com/openwindowinstitute/"
-                ><img src="../assets/img/icons8-instagram-64 (2).png" width="100%" height="auto" style="padding-right: 5px" /></a>
-            </div>
-            <div class="container-fluid col footerCol">
-              <a href="https://x.com/home"
-                ><img src="../assets/img/icons8-x-64 (1).png" width="100%" height="auto" style="padding-right: 5px" /></a>
-            </div>
-            <div class="container-fluid col footerCol">
-              <a href="https://www.tiktok.com/@open_window_"
-                ><img src="../assets/img/icons8-tiktok-64.png" width="100%" height="auto" style="padding-right: 5px" /></a>
-            </div>
-            <div class="container-fluid col footerCol">
-              <a href="https://www.facebook.com/theopenwindow/"
-                ><img src="../assets/img/icons8-facebook-64 (1).png" width="100%" height="auto" style="padding-right: 5px" /></a>
-            </div>
+
+        <div class="col-lg-5 col-md-12 text-center hero-right">
+          <p class="small text-muted">You Might Also Like...</p>
+          <div class="suggested">
+            <div class="suggested-img"></div>
+            <p class="mt-2 mb-0 fw-bold">Movie Name</p>
+            <small class="text-muted">Release date</small>
           </div>
         </div>
       </div>
-      <hr />
-      <div class="container-fluid row">
-        <div class="container-fluid col">
-          <p>Java Junkies 2025</p>
-        </div>
-        <div class="container-fluid col-2">
-          <p>Terms & Conditions</p>
-        </div>
-        <div class="container-fluid col-2">
-          <p>Privacy & Policy</p>
+    </div>
+  </section>
+
+  <!-- Footer matching other pages -->
+  <footer class="footer">
+    <div class="container-fluid row footerRow">
+      <div class="container-fluid col-lg-3 col-sm-4 footerRed">
+        <img src="assets/img/logo.png" width="100%" height="auto" style="padding-top: 5%;" alt="logo">
+      </div>
+      <div class="container-fluid col-lg-3 col-sm-4">
+        <h3>Pages</h3>
+        <br />
+        <p><a href="Index.html">Home</a></p>
+        <p><a href="#" class="active">Watchlist</a></p>
+        <p><a href="#">Explore</a></p>
+        <p><a href="#">My Account</a></p>
+      </div>
+      <div class="container-fluid col-lg-3 col-sm-4">
+        <h3>Social Media Links</h3>
+        <br />
+        <div class="container-fluid row">
+          <div class="container-fluid col footerCol">
+            <a href="#"><img src="assets/img/icons8-instagram-64 (2).png" width="100%" height="auto" style="padding-right: 5px" alt="ig" /></a>
+          </div>
+          <div class="container-fluid col footerCol">
+            <a href="#"><img src="assets/img/icons8-x-64 (1).png" width="100%" height="auto" style="padding-right: 5px" alt="x" /></a>
+          </div>
+          <div class="container-fluid col footerCol">
+            <a href="#"><img src="assets/img/icons8-tiktok-64.png" width="100%" height="auto" style="padding-right: 5px" alt="tiktok" /></a>
+          </div>
+          <div class="container-fluid col footerCol">
+            <a href="#"><img src="assets/img/icons8-facebook-64 (1).png" width="100%" height="auto" style="padding-right: 5px" alt="fb" /></a>
+          </div>
         </div>
       </div>
-    </footer>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <script src="https://kit.fontawesome.com/b2e0418e70.js" crossorigin="anonymous"></script>
-  </body>
+    </div>
+    <hr />
+    <div class="container-fluid row">
+      <div class="container-fluid col">
+        <p>Java Junkies 2025</p>
+      </div>
+      <div class="container-fluid col-2">
+        <p>Terms & Conditions</p>
+      </div>
+      <div class="container-fluid col-2">
+        <p>Privacy & Policy</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
+          integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" 
+          crossorigin="anonymous"></script>
+  <script src="https://kit.fontawesome.com/b2e0418e70.js" crossorigin="anonymous"></script>
+</body>
 </html>

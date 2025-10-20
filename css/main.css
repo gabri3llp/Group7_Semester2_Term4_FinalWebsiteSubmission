@@ -31,8 +31,6 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    
-    
   }
 
   
@@ -205,4 +203,137 @@ nav {
 .watchlist-unwatched h1{
   font-family: "Audiowide", sans-serif;
 }
- 
+
+/* Layout / full-height fixes + professional tweaks for individual movie page */
+html, body {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Make hero fill remaining viewport (accounting for nav + footer).
+   If your nav/footer sizes differ, adjust the 120px value. */
+.hero {
+  min-height: calc(100vh - 120px);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 2.5rem 0;
+  box-sizing: border-box;
+}
+
+/* overlay stays above background but below content */
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.85) 100%);
+  z-index: 1;
+}
+
+/* constrain hero content for better readability on large screens */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* left column tweaks */
+.hero-left {
+  padding-right: 2.5rem;
+}
+
+/* Title / meta typography */
+.hero-title {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+  line-height: 1.02;
+}
+
+.hero-meta {
+  color: #d1d1d1;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.hero-description {
+  max-width: 60ch;
+  color: #e7e7e7;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Buttons: size, spacing and subtle shadow for a modern look */
+.hero-buttons .btn {
+  border-radius: 8px;
+  padding: 0.6rem 1.1rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+}
+
+/* suggested / right column */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.suggested {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #f1f1f1;
+}
+
+.suggested-img {
+  width: 140px;
+  height: 210px;
+  background-color: #222;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+/* keep watchlist buttons appearance but polish spacing */
+#add-watchlist, #mark-watched {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Footer spacing (affects hero min-height calculation) */
+.footer {
+  padding-top: 40px;
+  padding-bottom: 28px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991px) {
+  .hero-content { padding: 2rem 1rem; max-width: 960px; }
+  .hero-left { padding-right: 0; }
+  .hero-right { margin-top: 1.25rem; }
+  .suggested-img { width: 120px; height: 180px; }
+  .hero-title { font-size: clamp(1.6rem, 6vw, 2.6rem); }
+  .hero-description { max-width: 100%; }
+}
+
+@media (max-width: 575px) {
+  .hero { min-height: auto; padding: 1.5rem 0; }
+  .suggested-img { width: 100px; height: 150px; }
+  .hero-buttons .btn { width: 100%; margin-bottom: 0.5rem; }
+  .hero-buttons { display:block; }
+}
+
