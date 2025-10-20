@@ -2,80 +2,87 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>3D Flip Login/Signup Box</title>
+<title> Sign up </title>
 
-<!-- Google Fonts for stylish typography -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" />
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 
 <!-- Font Awesome for icons -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
 
 <!-- Link to CSS stylesheet -->
-<link rel="stylesheet" href="css/main.css" />
+<link rel="stylesheet" href="/css/main.css" />
+
 </head>
-<body class="sign-in">
+<body>
 
-<div class="flip-container" id="flipBox">
-  <div class="flip-inner">
-    <!-- Login Form -->
-    <div class="flip-front">
-      <h2>Welcome Back</h2>
-      <form>
-        <div class="input-group">
-          <i class="fas fa-envelope"></i>
-          <input type="email" id="loginEmail" placeholder="Email" required />
+	<div class="container">
+        <div class="form-box login">
+            <form action="#" id="loginForm">
+                <h1>Login</h1>
+                <div class="input-box">
+                    <input id="signInEmail" type="text" placeholder="Email" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input id="signInPass" type="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt' ></i>
+                </div>
+                <div class="forgot-link">
+                    <a href="#">Forgot Password?</a>
+                </div>
+                <button type="submit" class="btn">Login</button>
+                <p>or login with social platforms</p>
+                <div class="social-icons">
+                    <a href="#"><i class='bx bxl-google' ></i></a>
+                    <a href="#"><i class='bx bxl-facebook' ></i></a>
+                    <a href="#"><i class='bx bxl-github' ></i></a>
+                    <a href="#"><i class='bx bxl-linkedin' ></i></a>
+                </div>
+            </form>
         </div>
-        <div class="input-group">
-          <i class="fas fa-lock"></i>
-          <input type="password" id="loginPassword" placeholder="Password" required />
+
+        <div class="form-box register">
+            <form action="#" id="signupForm">
+                <h1>Registration</h1>
+                <div class="input-box">
+                    <input id="signupUserName" type="text" placeholder="Username" required>
+                    <i class='bx bxs-user'></i>
+                </div>
+                <div class="input-box">
+                    <input id="signUpEmail" type="email" placeholder="Email" required>
+                    <i class='bx bxs-envelope' ></i>
+                </div>
+                <div class="input-box">
+                    <input id="signUpPass" type="password" placeholder="Password" required>
+                    <i class='bx bxs-lock-alt' ></i>
+                </div>
+                <button type="submit" class="btn">Register</button>
+                <p>or register with social platforms</p>
+                <div class="social-icons">
+                    <a href="#"><i class='bx bxl-google' ></i></a>
+                    <a href="#"><i class='bx bxl-facebook' ></i></a>
+                    <a href="#"><i class='bx bxl-github' ></i></a>
+                    <a href="#"><i class='bx bxl-linkedin' ></i></a>
+                </div>
+            </form>
         </div>
-        <button type="submit" onclick="login()">Login</button>
-      </form>
-      <div class="switch-link" id="toSignup">Don't have an account? Sign Up</div>
+
+        <div class="toggle-box">
+            <div class="toggle-panel toggle-left">
+                <h1>Hello, Welcome!</h1>
+                <p>Don't have an account?</p>
+                <button class="btn register-btn">Register</button>
+            </div>
+
+            <div class="toggle-panel toggle-right">
+                <h1>Welcome Back!</h1>
+                <p>Already have an account?</p>
+                <button class="btn login-btn">Login</button>
+            </div>
+        </div>
     </div>
-    <!-- Signup Form -->
-    <div class="flip-back">
-      <h2>Create Account</h2>
-      <form>
-        <div class="input-group">
-          <i class="fas fa-user"></i>
-          <input type="text" id="fullName" placeholder="Full Name" required />
-        </div>
-        <div class="input-group">
-          <i class="fas fa-envelope"></i>
-          <input type="email" id="signUpEmail" placeholder="Email" required />
-        </div>
-        <div class="input-group">
-          <i class="fas fa-lock"></i>
-          <input type="password" id="signUpPassword" placeholder="Password" required />
-        </div>
-
-        <div class="input-group">
-        <label>Are you a student or a lecturer?</label>
-        <select id="role">
-          <option value="student">Student</option>
-          <option value="lecturer">Lecturer</option>
-        </select>
-        </div>
-
-        <div class="input-group">
-          <i class="fas fa-user"></i>
-          <input type="number" id="studentNum" placeholder="Student Number (if applicable)"/>
-        </div>
-
-        <div class="input-group">
-          <i class="fas fa-user"></i>
-          <input type="number" id="lecturerSubjects" placeholder="Amount of subjects taught (if applicable)"/>
-        </div>
-
-        <button type="submit" onclick="signup()">Sign Up</button>
-      </form>
-      <div class="switch-link" id="toLogin">Already have an account? Login</div>
-    </div>
-  </div>
-</div>
-
-<!-- Link to JavaScript file -->
-<script src="js/script.js"></script>
+		
+<script src="/js/Script.js"></script>
+<script type="module" src="/js/Firebase.js"></script>
 </body>
 </html>
