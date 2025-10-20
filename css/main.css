@@ -1,6 +1,13 @@
-body{
-    margin: 0;
-    background-color: #131122;
+body {
+  margin: 0;
+  background-color: #131122;
+  font-family: 'Arimo', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .audiowide-regular {
@@ -9,88 +16,93 @@ body{
   font-style: normal;
 }
 
-
+/* Custom font */
 @font-face {
-    font-family: 'Arimo';
-    src: url(../assets/fonts/Arimo-Italic-VariableFont_wght.ttf);
+  font-family: 'Arimo';
+  src: url(../assets/fonts/Arimo-Italic-VariableFont_wght.ttf);
 }
 
+/* -------------------- */
+/* Navigation           */
+/* -------------------- */
 nav {
-    margin-top: 1em;
-    width: 90%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 35px;
-    background-color:#0A0913;
-    padding: 10px;
-    
-  }
+  margin-top: 1em;
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 35px;
+  background-color: #0A0913;
+  padding: 10px;
+}
 
-  .navFlex {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-  }
+.navFlex {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
 
-  
-  .navFlex h3 {    
-    padding: 0 20px; 
-    color:white;
-    font-size: 18px;
-    font-family: "Audiowide", sans-serif;   
-    
-  }
+.navFlex h3 {
+  padding: 0 20px;
+  color: white;
+  font-size: 18px;
+  font-family: "Audiowide", sans-serif;
+}
 
-  .navFlex a{
-    color: white;
-    font-weight: 500;
-    text-decoration: none;
-  }
+.navFlex a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+}
 
-  .navFlex a.active{
-    color: #CC0A73;
-    font-weight: 500;
-  }
+.navFlex a.active {
+  color: #CC0A73;
+  font-weight: 500;
+}
 
-  .navFlex h3 a:hover{
-    color: #CC0A73;
-    font-weight: 600;
-    text-decoration: none;
-  }
+.navFlex h3 a:hover {
+  color: #CC0A73;
+  font-weight: 600;
+  text-decoration: none;
+}
 
-  .searchBar {
-    display: flex;
-    padding: 0.5%;
-    align-items: center;
-    justify-content: flex-end;
-    background-color: #ffffff;
-    width: 65%;
-    border-radius: 20px;
-    margin-right: 2%;
-    margin-left: 2%;
-    border: 0;
-  }
+/* Search bar */
+.searchBar {
+  display: flex;
+  padding: 0.5%;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: #ffffff;
+  width: 65%;
+  border-radius: 20px;
+  margin-right: 2%;
+  margin-left: 2%;
+  border: 0;
+}
 
-  .footer {
+/* -------------------- */
+/* Footer               */
+/* -------------------- */
+.footer {
   background-color: #ffffff;
   padding-top: 40px;
   padding-left: 100px;
   padding-right: 100px;
+  padding-bottom: 28px;
 }
 
-.footer a{
+.footer a {
   color: #000000b4;
   font-weight: 500;
   text-decoration: none;
 }
 
-.footer a.active{
+.footer a.active {
   color: #0D54AC;
   font-weight: 500;
 }
 
-.footer a:hover{
+.footer a:hover {
   color: #0D54AC;
   font-weight: 700;
   text-decoration: none;
@@ -98,12 +110,11 @@ nav {
 
 .footerRed {
   margin-right: 10%;
-
 }
 
 .footerRow {
   padding-left: 40px;
-  padding-right: 40px; 
+  padding-right: 40px;
 }
 
 .footerCol {
@@ -115,40 +126,28 @@ nav {
   font-family: 'Arimo';
 }
 
-.footer h3{
+.footer h3 {
   color: #000000;
-  font-family: "Audiowide", sans-serif;  
+  font-family: "Audiowide", sans-serif;
 }
 
-.welcome{
+/* -------------------- */
+/* Homepage / Typography */
+/* -------------------- */
+.welcome {
   margin: 5%;
   color: #ffffff;
   text-align: center;
 }
 
-.welcome h1{
+.welcome h1 {
   font-family: "Audiowide", sans-serif;
 }
 
-.parent {
-  position: relative;
-  top: 0;
-  left: 20px;
-}
-
-.image1 {
-  position: relative;
-  top: 0;
-  left: 0;
-}
-
-.image2 {
-  position: absolute;
-  top: 60px;
-  left: 30px;
-}
-
-.button{
+/* -------------------- */
+/* Buttons              */
+/* -------------------- */
+.button {
   width: 150px;
   height: 50px;
   border-radius: 12px;
@@ -156,63 +155,61 @@ nav {
   font-weight: 600;
   background-color: #CC0A73;
   color: #ffffff;
-
 }
 
-.homeMovies{
+/* -------------------- */
+/* Homepage Layouts     */
+/* -------------------- */
+.homeMovies {
   padding-top: 10%;
   margin: 1%;
   color: #ffffff;
 }
 
-.homeMovies h2{
+.homeMovies h2 {
   font-family: "Audiowide", sans-serif;
 }
 
-.homeMovies h5{
+.homeMovies h5 {
   padding-right: 5%;
-} 
+}
 
-.trendingFlex{
+.trendingFlex {
   display: flex;
   justify-content: space-between;
 }
 
-.homeList{
+.homeList {
   margin: 1%;
   margin-right: 10%;
 }
 
-.watchlist-Nav{
+/* -------------------- */
+/* Watchlist Styles     */
+/* -------------------- */
+.watchlist-Nav {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
 
-.watchlist-description{
+.watchlist-description {
   background-color: rgba(255, 255, 255, 0.80);
   border: #000000;
 }
 
-.watchlist-unwatched{
+.watchlist-unwatched {
   margin-top: 10%;
   color: #ffffff;
 }
 
-
-.watchlist-unwatched h1{
+.watchlist-unwatched h1 {
   font-family: "Audiowide", sans-serif;
 }
 
-/* Layout / full-height fixes + professional tweaks for individual movie page */
-html, body {
-  height: 100%;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Make hero fill remaining viewport (accounting for nav + footer).
-   If your nav/footer sizes differ, adjust the 120px value. */
+/* -------------------- */
+/* Hero Section (Movie) */
+/* -------------------- */
 .hero {
   min-height: calc(100vh - 120px);
   background-size: cover;
@@ -225,7 +222,6 @@ html, body {
   box-sizing: border-box;
 }
 
-/* overlay stays above background but below content */
 .hero .overlay {
   position: absolute;
   inset: 0;
@@ -233,7 +229,6 @@ html, body {
   z-index: 1;
 }
 
-/* constrain hero content for better readability on large screens */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -243,12 +238,10 @@ html, body {
   width: 100%;
 }
 
-/* left column tweaks */
 .hero-left {
   padding-right: 2.5rem;
 }
 
-/* Title / meta typography */
 .hero-title {
   font-size: clamp(2rem, 4vw, 3.6rem);
   font-weight: 800;
@@ -256,6 +249,7 @@ html, body {
   margin-bottom: 0.75rem;
   color: #ffffff;
   line-height: 1.02;
+  font-family: "Audiowide", sans-serif;
 }
 
 .hero-meta {
@@ -272,7 +266,7 @@ html, body {
   line-height: 1.5;
 }
 
-/* Buttons: size, spacing and subtle shadow for a modern look */
+/* Buttons inside hero */
 .hero-buttons .btn {
   border-radius: 8px;
   padding: 0.6rem 1.1rem;
@@ -280,7 +274,7 @@ html, body {
   box-shadow: 0 4px 12px rgba(0,0,0,0.35);
 }
 
-/* suggested / right column */
+/* Suggested movies */
 .hero-right {
   display: flex;
   flex-direction: column;
@@ -306,7 +300,7 @@ html, body {
   box-shadow: 0 8px 20px rgba(0,0,0,0.6);
 }
 
-/* keep watchlist buttons appearance but polish spacing */
+/* Watchlist buttons */
 #add-watchlist, #mark-watched {
   padding: 0.5rem 1rem;
   border-radius: 6px;
@@ -314,13 +308,9 @@ html, body {
   cursor: pointer;
 }
 
-/* Footer spacing (affects hero min-height calculation) */
-.footer {
-  padding-top: 40px;
-  padding-bottom: 28px;
-}
-
-/* Responsive adjustments */
+/* -------------------- */
+/* Responsive Adjustments */
+/* -------------------- */
 @media (max-width: 991px) {
   .hero-content { padding: 2rem 1rem; max-width: 960px; }
   .hero-left { padding-right: 0; }
@@ -334,6 +324,5 @@ html, body {
   .hero { min-height: auto; padding: 1.5rem 0; }
   .suggested-img { width: 100px; height: 150px; }
   .hero-buttons .btn { width: 100%; margin-bottom: 0.5rem; }
-  .hero-buttons { display:block; }
+  .hero-buttons { display: block; }
 }
-
