@@ -1,6 +1,13 @@
-body{
-    margin: 0;
-    background-color: #131122;
+body {
+  margin: 0;
+  background-color: #131122;
+  font-family: 'Arimo', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .audiowide-regular {
@@ -9,94 +16,94 @@ body{
   font-style: normal;
 }
 
+/* Custom font */
 
 h1{
   font-family: "Audiowide", sans-serif;
 }
 
 @font-face {
-    font-family: 'Arimo';
-    src: url(../assets/fonts/Arimo-Italic-VariableFont_wght.ttf);
+  font-family: 'Arimo';
+  src: url(../assets/fonts/Arimo-Italic-VariableFont_wght.ttf);
 }
 
+/* Navigation*/
 nav {
-    margin-top: 1em;
-    width: 90%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    border-radius: 35px;
-    background-color:#0A0913;
-    padding: 10px;
-    
-  }
+  margin-top: 1em;
+  width: 90%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border-radius: 35px;
+  background-color: #0A0913;
+  padding: 10px;
+}
 
-  .navFlex {
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-    
-    
-  }
+.navFlex {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
 
-  
-  .navFlex h3 {    
-    padding: 0 20px; 
-    color:white;
-    font-size: 18px;
-    font-family: "Audiowide", sans-serif;   
-    
-  }
+.navFlex h3 {
+  padding: 0 20px;
+  color: white;
+  font-size: 18px;
+  font-family: "Audiowide", sans-serif;
+}
 
-  .navFlex a{
-    color: white;
-    font-weight: 500;
-    text-decoration: none;
-  }
+.navFlex a {
+  color: white;
+  font-weight: 500;
+  text-decoration: none;
+}
 
-  .navFlex a.active{
-    color: #CC0A73;
-    font-weight: 500;
-  }
+.navFlex a.active {
+  color: #CC0A73;
+  font-weight: 500;
+}
 
-  .navFlex h3 a:hover{
-    color: #CC0A73;
-    font-weight: 600;
-    text-decoration: none;
-  }
+.navFlex h3 a:hover {
+  color: #CC0A73;
+  font-weight: 600;
+  text-decoration: none;
+}
 
-  .searchBar {
-    display: flex;
-    padding: 0.5%;
-    align-items: center;
-    justify-content: flex-end;
-    background-color: #ffffff;
-    width: 65%;
-    border-radius: 20px;
-    margin-right: 2%;
-    margin-left: 2%;
-    border: 0;
-  }
-
-  .footer {
+/* Search bar */
+.searchBar {
+  display: flex;
+  padding: 0.5%;
+  align-items: center;
+  justify-content: flex-end;
   background-color: #ffffff;
+  width: 20%;
+  border-radius: 20px;
+  margin-right: 2%;
+  margin-left: 2%;
+  border: 0;
+}
+
+/* Footer*/
+.footer {
+  background-color: #C00B4F;
   padding-top: 40px;
   padding-left: 100px;
   padding-right: 100px;
+  padding-bottom: 28px;
 }
 
-.footer a{
+.footer a {
   color: #000000b4;
   font-weight: 500;
   text-decoration: none;
 }
 
-.footer a.active{
+.footer a.active {
   color: #0D54AC;
   font-weight: 500;
 }
 
-.footer a:hover{
+.footer a:hover {
   color: #0D54AC;
   font-weight: 700;
   text-decoration: none;
@@ -104,12 +111,11 @@ nav {
 
 .footerRed {
   margin-right: 10%;
-
 }
 
 .footerRow {
   padding-left: 40px;
-  padding-right: 40px; 
+  padding-right: 40px;
 }
 
 .footerCol {
@@ -121,17 +127,25 @@ nav {
   font-family: 'Arimo';
 }
 
-.footer h3{
+.footer h3 {
   color: #000000;
-  font-family: "Audiowide", sans-serif;  
+  font-family: "Audiowide", sans-serif;
 }
 
-.welcome{
+/* Homepage / Typography */
+.welcome {
   margin: 5%;
   color: #ffffff;
   text-align: center;
 }
 
+.welcome h1 {
+  font-family: "Audiowide", sans-serif;
+}
+
+/* Button*/
+.button {
+  width: 150px;
 
 .parent {
   position: relative;
@@ -159,23 +173,24 @@ nav {
   font-weight: 600;
   background-color: #CC0A73;
   color: #ffffff;
-
 }
 
-.homeMovies{
+/* Homepage Layouts*/
+.homeMovies {
   padding-top: 10%;
   margin: 1%;
   color: #ffffff;
 }
 
-.homeMovies h2{
+.homeMovies h2 {
   font-family: "Audiowide", sans-serif;
 }
 
-.homeMovies h5{
+.homeMovies h5 {
   padding-right: 5%;
-} 
+}
 
+.trendingFlex {
 .landingMovies{
   padding-top: 10%;
   color: #ffffff;
@@ -199,27 +214,146 @@ nav {
   justify-content: space-between;
 }
 
-.homeList{
+.homeList {
   margin: 1%;
   margin-left: 5%;
 }
 
-.watchlist-Nav{
+/* Watchlist Styles*/
+.watchlist-Nav {
   display: flex;
   align-items: center;
   justify-content: space-evenly;
 }
 
-.watchlist-description{
+.watchlist-description {
   background-color: rgba(255, 255, 255, 0.80);
   border: #000000;
 }
 
-.watchlist-unwatched{
+.watchlist-unwatched {
   margin-top: 10%;
   color: #ffffff;
 }
 
+.watchlist-unwatched h1 {
+  font-family: "Audiowide", sans-serif;
+}
+
+/* Hero Section (Movie) */
+.hero {
+  min-height: calc(100vh);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 2.5rem 0;
+  box-sizing: border-box;
+}
+
+.hero .overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(0,0,0,0.55) 0%, rgba(0,0,0,0.85) 100%);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 3rem 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.hero-left {
+  padding-right: 2.5rem;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 4vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  margin-bottom: 0.75rem;
+  color: #ffffff;
+  line-height: 1.02;
+  font-family: "Audiowide", sans-serif;
+}
+
+.hero-meta {
+  color: #d1d1d1;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.hero-description {
+  max-width: 60ch;
+  color: #e7e7e7;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+/* Buttons inside hero */
+.hero-buttons .btn {
+  border-radius: 8px;
+  padding: 0.6rem 1.1rem;
+  font-weight: 700;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+}
+
+/* Suggested movies */
+.hero-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: center;
+}
+
+.suggested {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: #f1f1f1;
+}
+
+.suggested-img {
+  width: 140px;
+  height: 100px;
+  background-color: #222;
+  border-radius: 8px;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+}
+
+/* Watchlist buttons */
+#add-watchlist, #mark-watched {
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+
+@media (max-width: 991px) {
+  .hero-content { padding: 2rem 1rem; max-width: 960px; }
+  .hero-left { padding-right: 0; }
+  .hero-right { margin-top: 1.25rem; }
+  .suggested-img { width: 120px; height: 180px; }
+  .hero-title { font-size: clamp(1.6rem, 6vw, 2.6rem); }
+  .hero-description { max-width: 100%; }
+}
+
+@media (max-width: 575px) {
+  .hero { min-height: auto; padding: 1.5rem 0; }
+  .suggested-img { width: 100px; height: 150px; }
+  .hero-buttons .btn { width: 100%; margin-bottom: 0.5rem; }
+  .hero-buttons { display: block; border: #000000; }
 .movielanding-header {
     height: 100vh;
     width: 100%;
