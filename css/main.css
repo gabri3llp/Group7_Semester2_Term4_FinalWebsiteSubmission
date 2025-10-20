@@ -22,9 +22,7 @@ html, body {
   src: url(../assets/fonts/Arimo-Italic-VariableFont_wght.ttf);
 }
 
-/* -------------------- */
-/* Navigation           */
-/* -------------------- */
+/* Navigation*/
 nav {
   margin-top: 1em;
   width: 90%;
@@ -73,18 +71,16 @@ nav {
   align-items: center;
   justify-content: flex-end;
   background-color: #ffffff;
-  width: 65%;
+  width: 20%;
   border-radius: 20px;
   margin-right: 2%;
   margin-left: 2%;
   border: 0;
 }
 
-/* -------------------- */
-/* Footer               */
-/* -------------------- */
+/* Footer*/
 .footer {
-  background-color: #ffffff;
+  background-color: #C00B4F;
   padding-top: 40px;
   padding-left: 100px;
   padding-right: 100px;
@@ -131,9 +127,7 @@ nav {
   font-family: "Audiowide", sans-serif;
 }
 
-/* -------------------- */
 /* Homepage / Typography */
-/* -------------------- */
 .welcome {
   margin: 5%;
   color: #ffffff;
@@ -144,9 +138,7 @@ nav {
   font-family: "Audiowide", sans-serif;
 }
 
-/* -------------------- */
-/* Buttons              */
-/* -------------------- */
+/* Button*/
 .button {
   width: 150px;
   height: 50px;
@@ -157,9 +149,7 @@ nav {
   color: #ffffff;
 }
 
-/* -------------------- */
-/* Homepage Layouts     */
-/* -------------------- */
+/* Homepage Layouts*/
 .homeMovies {
   padding-top: 10%;
   margin: 1%;
@@ -184,9 +174,7 @@ nav {
   margin-right: 10%;
 }
 
-/* -------------------- */
-/* Watchlist Styles     */
-/* -------------------- */
+/* Watchlist Styles*/
 .watchlist-Nav {
   display: flex;
   align-items: center;
@@ -207,11 +195,9 @@ nav {
   font-family: "Audiowide", sans-serif;
 }
 
-/* -------------------- */
 /* Hero Section (Movie) */
-/* -------------------- */
 .hero {
-  min-height: calc(100vh - 120px);
+  min-height: calc(100vh);
   background-size: cover;
   background-position: center;
   position: relative;
@@ -292,7 +278,7 @@ nav {
 
 .suggested-img {
   width: 140px;
-  height: 210px;
+  height: 100px;
   background-color: #222;
   border-radius: 8px;
   background-size: cover;
@@ -308,9 +294,7 @@ nav {
   cursor: pointer;
 }
 
-/* -------------------- */
-/* Responsive Adjustments */
-/* -------------------- */
+
 @media (max-width: 991px) {
   .hero-content { padding: 2rem 1rem; max-width: 960px; }
   .hero-left { padding-right: 0; }
@@ -324,5 +308,5 @@ nav {
   .hero { min-height: auto; padding: 1.5rem 0; }
   .suggested-img { width: 100px; height: 150px; }
   .hero-buttons .btn { width: 100%; margin-bottom: 0.5rem; }
-  .hero-buttons { display: block; }
+  .hero-buttons { display: block; border: #000000; }
 }
