@@ -377,3 +377,22 @@ nav {
 #filterSearch {
   max-width: 25%;
 }
+
+.landingMovies{
+  padding-top: 7%;
+  color: #ffffff;
+}
+
+.landingMovies h2{
+  font-family: "Audiowide", sans-serif;
+}
+
+.landingList{
+  margin: 1%;
+  justify-content: center;
+  
+}
+
+.landingMovies h5{
+  padding-right: 5%;
+} 
