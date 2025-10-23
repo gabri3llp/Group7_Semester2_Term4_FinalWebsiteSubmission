@@ -78,13 +78,13 @@
             <div class="filterOptions d-flex flex-nowrap align-items-center gap-3">
                 <div class="filterDropdown d-flex align-items-center gap-2">
                   <p class="mb-0 text-white">Genre:</p>
-                  <select class="form-select" aria-label="Genre filter">
+                  <select class="form-select" aria-label="Genre filter" id="genreFilter">
                     <option selected>All</option>
-                    <option value="1">Action</option>
-                    <option value="2">Comedy</option>
-                    <option value="3">Drama</option>
-                    <option value="4">Horror</option>
-                    <option value="5">Romance</option>
+                    <option value="28">Action</option>
+                    <option value="35">Comedy</option>
+                    <option value="18">Drama</option>
+                    <option value="27">Horror</option>
+                    <option value="10749">Romance</option>
                   </select>
                 </div>
         
@@ -293,6 +293,27 @@
         </section>
     </section>
 
+    <section class="filteredPageEXP" id="moviesContainer">
+        <div class="row row-cols-1 row-cols-md-5 g-4 landingList">
+
+        </div>
+
+        <template id="movieCardTemplate">
+            <div class="col">
+            <div class="card h-100">
+                <img src="../assets/img/testImg/bryan-cranston-aaron-paul-breaking-bad.webp" class="card-img-top" alt="Movie Poster" />
+                <div class="card-body">
+                    <h5 class="card-title">Card title</h5>
+                        <div class="d-flex justify-content-between">
+                            <p class="card-text" id="release">Release date</p>
+                            <p class="card-text" id="rating">Rating</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </template>
+
+    </section>
 
 
 

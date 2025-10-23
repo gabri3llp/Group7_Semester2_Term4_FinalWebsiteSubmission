@@ -411,10 +411,14 @@ nav {
   padding-right: 5%;
 } 
 
-.disabledExp {
+.defaultPageEXP.disabled {
   display: none;
 }
 
 #overviewHeroExp {
   max-width: 85%;
+}
+
+#movieCardTemplate {
+  color: white;
 }

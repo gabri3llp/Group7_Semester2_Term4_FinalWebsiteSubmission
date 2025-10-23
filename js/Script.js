@@ -62,7 +62,7 @@ function getGenreName(genreId) {
         const response = await fetch('https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1', options);
         const data = await response.json();
 
-        const firstMovie = data.results[3];
+        const firstMovie = data.results[3]; //This movie just looked better as a background
         if (firstMovie) {
             const movie = {
                 title: firstMovie.title,
@@ -78,8 +78,6 @@ function getGenreName(genreId) {
             heroSection.querySelector('#overviewHeroExp').textContent = movie.overview;
             heroSection.querySelector('#genresExp').textContent = `Genre: ${movie.genre}`;
         }
-
-       
 
     } catch (error) {
         console.error('Error fetching TMDB data:', error);
@@ -208,6 +206,68 @@ function getGenreName(genreId) {
         console.error('Error fetching TMDB data:', error);
     }
 }();
+
+//filterlogic
+document.addEventListener('DOMContentLoaded', () => {
+    const genreDropdown = document.querySelector('#genreFilter');
+    const defaultSect = document.querySelector('.defaultPageEXP');
+    const filterMode = document.querySelector('.filteredPageEXP');
+    const container = document.querySelector('.filteredPageEXP .landingList');
+    const template = document.querySelector('#movieCardTemplate');  
+
+
+    function toggleDefault(hidden) {
+        defaultSect.style.display = hidden ? 'none' : '';
+        filterMode.style.display = hidden ? '' : 'none';
+    }
+
+    function showMovies(movies) {
+        container.innerHTML = '';
+
+        movies.forEach(movie => {
+            const card = template.content.cloneNode(true);
+            card.querySelector('img').src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+            card.querySelector('.card-title').textContent = movie.title;
+            card.querySelector('#release').textContent = `Release: ${movie.release_date}`;
+            card.querySelector('#rating').textContent = `Rating: ${movie.vote_average.toFixed(1)}`;
+            container.appendChild(card)
+        });        
+    }
+
+    async function fetchAndShow(genreId = null) {
+        const options = {
+            method: 'GET',
+            headers: {
+                accept: 'application/json',
+                Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNjQxYjVkZjM4OWQzNGNkNjA3NDAxYjhjMGFiNDY3MSIsIm5iZiI6MTc2MTE3ODkyNC4yODEsInN1YiI6IjY4Zjk3NTJjMWQ1MTQ1MzUzODQ4ZWZlOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Lj9vtUp62zyRkE6p4x6o0aJm1mqbNyLiHk7wG3Ju4dA'
+            }
+        };
+
+        let url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=primary_release_date.desc&primary_release_date.lte=2025-10-31&vote_count.gte=50';
+        if (genreId) {
+            url += `&with_genres=${genreId}`;
+        }
+
+        try {
+            const response = await fetch(url, options);
+            const data = await response.json();
+            showMovies(data.results);
+        } catch (error) {
+            console.error('Error fetching TMDB data:', error);
+        }
+    }
+
+    toggleDefault(false);
+
+    genreDropdown.addEventListener('change', (selected) => {
+        const selectedValue = selected.target.value.toLowerCase();
+        const isAll = selectedValue === 'all';
+        const genreId = isAll ? null : selectedValue;
+
+        toggleDefault(selectedValue!=='all');
+        fetchAndShow(genreId);
+    })
+});
 
 //End of Troy's Stuff
 
