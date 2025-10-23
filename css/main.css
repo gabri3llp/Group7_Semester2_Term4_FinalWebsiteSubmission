@@ -171,6 +171,8 @@ nav {
 
 #trendFlex{
   color: white;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .homeList {
@@ -400,7 +402,7 @@ nav {
 }
 
 .landingList{
-  margin: 1%;
+  margin: 5%;
   justify-content: center;
   
 }
@@ -408,3 +410,11 @@ nav {
 .landingMovies h5{
   padding-right: 5%;
 } 
+
+.disabledExp {
+  display: none;
+}
+
+#overviewHeroExp {
+  max-width: 85%;
+}
