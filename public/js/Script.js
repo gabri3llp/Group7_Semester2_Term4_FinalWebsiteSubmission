@@ -310,3 +310,102 @@ registerBtn.addEventListener('click', () => {
 loginBtn.addEventListener('click', () => {
     container.classList.remove('active');
 })
+
+
+// Sign in / sign up
+
+// Script.js - defensive toggle behaviour and top-level execution checks.
+// This file logs immediately, uses delegated click listening, and exposes helpers to debug loading.
+(function () {
+  // top-level log to show the file executed
+  try { console.log('Script.js (external) loaded: top-level log'); } catch (e) {}
+
+  // global error reporting
+  window.addEventListener('error', e => console.error('window error:', e && e.message ? e.message : e), true);
+  window.addEventListener('unhandledrejection', e => console.error('unhandled rejection:', e && e.reason ? e.reason : e), true);
+
+  function setActive(on) {
+    const container = document.querySelector('.SN-container');
+    if (!container) return console.warn('setActive: .SN-container not found');
+    if (on) container.classList.add('active'); else container.classList.remove('active');
+    console.log('setActive:', on, 'container.classList:', container.classList.toString());
+  }
+
+  // delegated click handler: handles clicks on current or future toggle buttons
+  function delegatedClickHandler(e) {
+    const target = e.target;
+    if (!target) return;
+    // walk up from the event target to find matching buttons
+    let el = target;
+    while (el && el !== document) {
+      if (el.matches && el.matches('.SN-register-btn')) {
+        e.preventDefault && e.preventDefault();
+        e.stopPropagation && e.stopPropagation();
+        console.log('delegatedClickHandler: register button activated');
+        setActive(true);
+        return;
+      }
+      if (el.matches && el.matches('.SN-login-btn')) {
+        e.preventDefault && e.preventDefault();
+        e.stopPropagation && e.stopPropagation();
+        console.log('delegatedClickHandler: login button activated');
+        setActive(false);
+        return;
+      }
+      el = el.parentElement;
+    }
+  }
+
+  // Attach delegated handler on capture phase to maximize chance of catching events
+  if (!document.__sn_delegation_attached) {
+    document.addEventListener('click', delegatedClickHandler, true);
+    document.__sn_delegation_attached = true;
+    console.log('Script.js: delegated click handler attached (capture).');
+  }
+
+  // Fallback pointerdown + elementFromPoint (helps if some overlay swallows pointer events)
+  if (!document.__sn_pointerdown_attached) {
+    document.addEventListener('pointerdown', function (ev) {
+      try {
+        const el = document.elementFromPoint(ev.clientX, ev.clientY);
+        if (!el) return;
+        let cur = el;
+        while (cur && cur !== document) {
+          if (cur.matches && cur.matches('.SN-register-btn')) {
+            ev.preventDefault && ev.preventDefault();
+            ev.stopPropagation && ev.stopPropagation();
+            console.log('pointerdown: register element found via elementFromPoint');
+            setActive(true);
+            return;
+          }
+          if (cur.matches && cur.matches('.SN-login-btn')) {
+            ev.preventDefault && ev.preventDefault();
+            ev.stopPropagation && ev.stopPropagation();
+            console.log('pointerdown: login element found via elementFromPoint');
+            setActive(false);
+            return;
+          }
+          cur = cur.parentElement;
+        }
+      } catch (e) {
+        console.warn('pointerdown fallback error', e);
+      }
+    }, { capture: true, passive: false });
+    document.__sn_pointerdown_attached = true;
+    console.log('Script.js: pointerdown fallback attached.');
+  }
+
+  // Expose debug helper to quickly inspect what's under the register button center
+  window.__SN_debugButtonAtPointer = function () {
+    const btn = document.querySelector('.SN-register-btn');
+    if (!btn) { console.warn('No .SN-register-btn on page'); return; }
+    const r = btn.getBoundingClientRect();
+    const cx = Math.round(r.left + r.width / 2);
+    const cy = Math.round(r.top + r.height / 2);
+    console.log('register button rect:', r);
+    console.log('coords checked:', { cx, cy }, 'elementFromPoint:', document.elementFromPoint(cx, cy));
+  };
+
+  // final ready log
+  console.log('Script.js: initialized.');
+})();
