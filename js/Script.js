@@ -62,22 +62,38 @@ function getGenreName(genreId) {
         const response = await fetch('https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=1', options);
         const data = await response.json();
 
-        const firstMovie = data.results[3]; //This movie just looked better as a background
-        if (firstMovie) {
-            const movie = {
-                title: firstMovie.title,
-                overview: firstMovie.overview,
-                img: 'https://image.tmdb.org/t/p/original' + firstMovie.backdrop_path,
-                overview: firstMovie.overview,
-                genre: getGenreName(firstMovie.genre_ids[0]),
-            };
+        const movies = data.results.filter(m => m.backdrop_path);
+        if (!movies.length) return;
 
-            const heroSection = heroSectionExp;
-            document.querySelector('#heroImgExp').style.backgroundImage = `url(${movie.img})`;
-            heroSection.querySelector('#titleHeroExp').textContent = movie.title;
-            heroSection.querySelector('#overviewHeroExp').textContent = movie.overview;
-            heroSection.querySelector('#genresExp').textContent = `Genre: ${movie.genre}`;
+        const heroSection = heroSectionExp;
+        const heroImg = document.querySelector('#heroImgExp');
+        const titleHSExp = heroSection.querySelector('#titleHeroExp');
+        const overviewHSExp = heroSection.querySelector('#overviewHeroExp');
+        const genreHSExp = heroSection.querySelector('#genresExp');
+
+        let index = 0;
+
+        function showMovie(movie) {
+            const imgUrl = 'https://image.tmdb.org/t/p/original' + movie.backdrop_path;
+            const genre = getGenreName(movie.genre_ids[0]);
+
+
+            setTimeout(() => {
+                heroImg.style.backgroundImage = `url(${imgUrl})`;
+                titleHSExp.textContent = movie.title;
+                overviewHSExp.textContent = movie.overview;
+                genreHSExp.textContent = `Genre: ${genre}`;
+                heroImg.classList.add('fade-in');
+                setTimeout(() => heroImg.classList.remove('fade-in'), 1000);
+            }, 500);
         }
+
+        showMovie(movies[index]);
+
+        setInterval(() => {
+            index = (index + 1) % movies.length;
+            showMovie(movies[index]);
+        }, 12000);
 
     } catch (error) {
         console.error('Error fetching TMDB data:', error);
@@ -210,6 +226,7 @@ function getGenreName(genreId) {
 //filterlogic
 document.addEventListener('DOMContentLoaded', () => {
     const genreDropdown = document.querySelector('#genreFilter');
+    const sortDropdown = document.querySelector('#sortFilter');
     const defaultSect = document.querySelector('.defaultPageEXP');
     const filterMode = document.querySelector('.filteredPageEXP');
     const container = document.querySelector('.filteredPageEXP .landingList');
@@ -234,7 +251,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });        
     }
 
-    async function fetchAndShow(genreId = null) {
+    async function fetchAndShow(genreId = null, sortMode = 'newest') {
         const options = {
             method: 'GET',
             headers: {
@@ -243,7 +260,12 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         };
 
-        let url = 'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=primary_release_date.desc&primary_release_date.lte=2025-10-31&vote_count.gte=50';
+        let sortBy = 'primary_release_date.desc';
+        if (sortMode === 'oldest') sortBy = 'primary_release_date.asc';
+        if (sortMode === 'toprated') sortBy = 'vote_average.desc';
+
+        let url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=${sortBy}&vote_count.gte=50&primary_release_date.lte=2025-10-31`;
+        
         if (genreId) {
             url += `&with_genres=${genreId}`;
         }
@@ -257,16 +279,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     }
 
+    let currentGenre = null;
+    let currentSort = 'newest';
     toggleDefault(false);
 
-    genreDropdown.addEventListener('change', (selected) => {
-        const selectedValue = selected.target.value.toLowerCase();
+    genreDropdown.addEventListener('change', (e) => {
+        const selectedValue = e.target.value.toLowerCase();
         const isAll = selectedValue === 'all';
-        const genreId = isAll ? null : selectedValue;
+        currentGenre = isAll ? null : selectedValue;
 
-        toggleDefault(selectedValue!=='all');
-        fetchAndShow(genreId);
-    })
+        toggleDefault(!isAll);
+        fetchAndShow(currentGenre, currentSort);
+    });
+
+    sortDropdown.addEventListener('change', (e) => {
+        currentSort = e.target.value;
+        toggleDefault(currentGenre !== null);
+        fetchAndShow(currentGenre, currentSort);
+    });
 });
 
 //End of Troy's Stuff
