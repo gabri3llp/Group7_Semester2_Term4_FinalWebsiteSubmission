@@ -281,3 +281,14 @@ nav {
 #filterSearch {
   max-width: 25%;
 }
+
+#heroImgExp {
+  transition: background-image 0.5s ease-in-out;
+  background-size: cover;
+  background-position: center;
+}
+
+.fade-in {
+  opacity: 1;
+  transition: opacity .5s ease;
+}
