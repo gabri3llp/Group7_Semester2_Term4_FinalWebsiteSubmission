@@ -503,11 +503,11 @@ updateButtonStates();
 
 class Individual {
             constructor(title,release_date,rating,genre,overview){
-        movie.title = title;
-        movie.release_date = release_date;
-        movie.vote_average = rating;
-        movie.genre = genre;
-        movie.overview = overview;
+        Individual.title = title;
+        Individual.release_date = release_date;
+        Individual.vote_average = rating;
+        Individual.genre = genre;
+        Individual.overview = overview;
             }            
         };
 
@@ -515,24 +515,22 @@ class Individual {
 
 const addWatchlist = document.getElementById('add-watchlist');
 
-addWatchlist.addEventListener('onclick', (e) => {
+addWatchlist.addEventListener('click', (e) => {
     e.preventDefault();
 
-    const title = document.getElementById('.hero-title').value;
+    const title = document.querySelector('.hero-title').value;
     const release_date = document.getElementById('yor').value;
     const vote_average = document.getElementById('ratingIND').value;
-    const genre = document.getElementById('signUpgenresINDPassword').value;
-    const overview = document.getElementById('hero-description').value;
+    const genre = document.getElementById('ratingIND').value;
+    const overview = document.querySelector('.hero-description').value;
 
     const newIndividual = new Individual(title, release_date, vote_average,genre,overview);
-    
-    // let users = JSON.parse(localStorage.getItem('users')) || [];
-    
-    Individual.push(newIndividual);
+       
+    //Individual.push(newIndividual);
 
-    // localStorage.setItem("individual", JSON.stringify(users));
+    
 
-    console.log(Individual[0])
+    console.log(release_date);
 });
 
 
