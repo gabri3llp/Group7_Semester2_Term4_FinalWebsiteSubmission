@@ -358,6 +358,69 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 }();
 
+
+//individual movie page stuff
+let movieName = '';
+
+
+function fetchMovieInfo(title){
+    !async function () {
+    const options = {
+        method: 'GET',
+        headers: {
+            accept: 'application/json',
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNjQxYjVkZjM4OWQzNGNkNjA3NDAxYjhjMGFiNDY3MSIsIm5iZiI6MTc2MTE3ODkyNC4yODEsInN1YiI6IjY4Zjk3NTJjMWQ1MTQ1MzUzODQ4ZWZlOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Lj9vtUp62zyRkE6p4x6o0aJm1mqbNyLiHk7wG3Ju4dA'
+        }
+    };
+
+    try {
+        const response = await fetch(
+            `https://api.themoviedb.org/3/search/movie?query=${title}&include_adult=true&language=en-US&page=1`,
+            options
+        );
+        const data = await response.json();
+        const movie= data.results[0];
+        
+        const overlay = document.querySelector('.overlay');
+        overlay.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${movie.backdrop_path})`;
+        overlay.style.backgroundSize = 'cover';       
+        overlay.style.backgroundPosition = 'center'; 
+        overlay.style.backgroundRepeat = 'no-repeat'; 
+
+        document.querySelector('.hero-title').textContent = movie.title;
+        document.querySelector('#yor').textContent = movie.release_date;
+        document.querySelector('#ageRestIND').textContent = movie.adult ? "18+" : "E - Everyone";
+        document.querySelector('#ratingIND').textContent = `Rating: ${movie.vote_average}`;
+        document.querySelector('#genresIND').textContent = `${getGenreName(movie.genre_ids[0])}`; 
+        document.querySelector('.hero-description').textContent = movie.overview
+        
+
+    } catch (error) {
+        console.error('Error fetching TMDB data (indivpage):', error);
+    }
+}();
+}
+
+document.body.addEventListener('click', (e) => {
+    const card = e.target.closest('.card-img-top');
+    if (!card) return;
+
+    movieName = card.parentElement.querySelector('.card-title').textContent;
+    console.log(`Clicked movie ID: ${movieName}`);
+
+    sessionStorage.setItem('movieName', movieName);
+    window.location.href = window.location.pathname.includes("/pages/") ? "individiul movie.html" : "pages/individiul movie.html";
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const movieName = sessionStorage.getItem('movieName');
+    if (movieName) {
+        fetchMovieInfo(movieName);
+    }
+});
+
+
+
 //End of Troy's Stuff
 
 
