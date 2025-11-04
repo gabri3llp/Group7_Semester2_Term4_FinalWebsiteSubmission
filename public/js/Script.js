@@ -438,6 +438,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+
+
 //End of individual page
 
 //Movie watchlist page
