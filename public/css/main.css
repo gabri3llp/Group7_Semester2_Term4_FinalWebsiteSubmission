@@ -441,13 +441,27 @@ nav {
 
 /* sign in/ sign up page */
 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+}
+
+.SNbody{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
 
 
 .container{
     position: relative;
     width: 850px;
     height: 550px;
-    background: #fff;
+   background-image: linear-gradient(to top , #131122 , #4e458f );
     margin: 20px;
     border-radius: 30px;
     box-shadow: 0 0 30px rgba(0, 0, 0, .2);
@@ -471,7 +485,7 @@ form{ width: 100%; }
     right: 0;
     width: 50%;
     height: 100%;
-    background: #fff;
+    background-image: linear-gradient(to top , #131122 , #4e458f );
     display: flex;
     align-items: center;
     color: #333;
@@ -523,9 +537,9 @@ form{ width: 100%; }
     }
 
 .SNbtn{
-    width: 100%;
+    width: 75%;
     height: 48px;
-    background: #7494ec;
+    background: #49428b;;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, .1);
     border: none;
@@ -562,7 +576,7 @@ form{ width: 100%; }
         left: -250%;
         width: 300%;
         height: 100%;
-        background: #7494ec;
+        background:#6056b6;
         /* border: 2px solid red; */
         border-radius: 150px;
         z-index: 2;

@@ -305,7 +305,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const data = await response.json();
         const moviesArray = data.results.slice(0, 5);
 
-        const container = document.querySelector('.homeMovies:nth-of-type(1) .landingList');
+        const container = document.querySelector('.homeMovies .landingList');
         const template = document.querySelector('#movieCardTemplate');
 
         container.innerHTML = '';
@@ -319,7 +319,42 @@ document.addEventListener('DOMContentLoaded', () => {
             container.appendChild(card);
         });
     } catch (error) {
-        console.error('Error fetching TMDB data (Trending South Africa):', error);
+        console.error('Error fetching TMDB data (Trending HomePage):', error);
+    }
+}();
+
+!async function () {
+    const options = {
+        method: 'GET',
+        headers: {
+            accept: 'application/json',
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNjQxYjVkZjM4OWQzNGNkNjA3NDAxYjhjMGFiNDY3MSIsIm5iZiI6MTc2MTE3ODkyNC4yODEsInN1YiI6IjY4Zjk3NTJjMWQ1MTQ1MzUzODQ4ZWZlOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Lj9vtUp62zyRkE6p4x6o0aJm1mqbNyLiHk7wG3Ju4dA'
+        }
+    };
+
+    try {
+        const response = await fetch(
+            'https://api.themoviedb.org/3/discover/movie?with_genres=9648&sort_by=primary_release_date.desc&language=en-US&include_adult=false&page=1&primary_release_date.lte=2025-11-04',
+            options
+        );
+        const data = await response.json();
+        const moviesArray = data.results.slice(0, 5);
+
+        const container = document.querySelector('.mysteryMovies .landingList');
+        const template = document.querySelector('#movieCardTemplate');
+
+        container.innerHTML = '';
+
+        moviesArray.forEach(movie => {
+            const card = template.content.cloneNode(true);
+            card.querySelector('img').src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+            card.querySelector('.card-title').textContent = movie.title;
+            card.querySelector('#release').innerHTML = `Release: <br>${movie.release_date}`;
+            card.querySelector('#rating').innerHTML = `Rating: <br>${movie.vote_average.toFixed(1)} <i class="fa-solid fa-star"></i>`;
+            container.appendChild(card);
+        });
+    } catch (error) {
+        console.error('Error fetching Mystery movies:', error);
     }
 }();
 
@@ -334,5 +369,4 @@ registerBtn.addEventListener('click', () => {
 loginBtn.addEventListener('click', () => {
     container.classList.remove('active');
 })
-
 
