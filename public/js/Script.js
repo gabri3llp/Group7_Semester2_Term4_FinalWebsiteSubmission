@@ -101,7 +101,7 @@ function getGenreName(genreId) {
 }();
 
 //TrendingSA
-!async function() {
+!async function () {
     const options = {
         method: 'GET',
         headers: {
@@ -111,38 +111,34 @@ function getGenreName(genreId) {
     };
 
     try {
-        const response = await fetch('https://api.themoviedb.org/3/movie/popular?language=en-ZA&region=ZA&page=1', options);
+        const response = await fetch(
+            'https://api.themoviedb.org/3/trending/movie/week?region=ZA&language=en-US',
+            options
+        );
         const data = await response.json();
+        const moviesArray = data.results.slice(0, 5);
 
-        trendSAmoviesArray = data.results.map(movie => {
-            return {
-                title: movie.title,
-                releaseDate: movie.release_date,
-                rating: movie.vote_average,
-                popularity: movie.popularity,
-                overview: movie.overview,
-                posterUrl: 'https://image.tmdb.org/t/p/w500' + movie.poster_path
-            };
+        const container = document.querySelector('.landingMovies:nth-of-type(1) .landingList');
+        const template = document.querySelector('#movieCardTemplate');
+
+        container.innerHTML = '';
+
+        moviesArray.forEach(movie => {
+            const card = template.content.cloneNode(true);
+            card.querySelector('img').src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+            card.querySelector('.card-title').textContent = movie.title;
+            card.querySelector('#release').innerHTML = `Release: <br>${movie.release_date}`;
+            card.querySelector('#rating').innerHTML = `Rating: <br>${movie.vote_average.toFixed(1)} <i class="fa-solid fa-star"></i>`;
+            container.appendChild(card);
         });
-
-        trendSAmoviesArray.forEach((movie, i) => {
-            const card = trendSACardsExp[i];
-            if (card) { 
-                card.querySelector('img').src = movie.posterUrl;
-                card.querySelector('.card-title').textContent = movie.title;
-                const shortRating = movie.rating.toFixed(2);
-                card.querySelector('#rating').textContent = `Rating: ${shortRating}`;
-                card.querySelector('#release').textContent = `Release: ${movie.releaseDate}`;
-            }
-        });
-
     } catch (error) {
-        console.error('Error fetching TMDB data:', error);
+        console.error('Error fetching TMDB data (Trending South Africa):', error);
     }
 }();
+
 
 //Horror
-!async function() {
+!async function () {
     const options = {
         method: 'GET',
         headers: {
@@ -152,38 +148,34 @@ function getGenreName(genreId) {
     };
 
     try {
-        const response = await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=vote_count.desc&with_genres=27', options);
+        const response = await fetch(
+            'https://api.themoviedb.org/3/discover/movie?include_adult=false&with_genres=27&language=en-US&page=1&sort_by=popularity.desc',
+            options
+        );
         const data = await response.json();
+        const moviesArray = data.results.slice(0, 5);
 
-        moviesArray = data.results.map(movie => {
-            return {
-                title: movie.title,
-                releaseDate: movie.release_date,
-                rating: movie.vote_average,
-                popularity: movie.popularity,
-                overview: movie.overview,
-                posterUrl: 'https://image.tmdb.org/t/p/w500' + movie.poster_path
-            };
+        const container = document.querySelector('.landingMovies:nth-of-type(2) .landingList');
+        const template = document.querySelector('#movieCardTemplate');
+
+        container.innerHTML = '';
+
+        moviesArray.forEach(movie => {
+            const card = template.content.cloneNode(true);
+            card.querySelector('img').src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+            card.querySelector('.card-title').textContent = movie.title;
+            card.querySelector('#release').innerHTML = `Release: <br>${movie.release_date}`;
+            card.querySelector('#rating').innerHTML = `Rating: <br>${movie.vote_average.toFixed(1)} <i class="fa-solid fa-star"></i>`;
+            container.appendChild(card);
         });
-
-        moviesArray.forEach((movie, i) => {
-            const card = horrorCardsExp[i];
-            if (card) { 
-                card.querySelector('img').src = movie.posterUrl;
-                card.querySelector('.card-title').textContent = movie.title;
-                const shortRating = movie.rating.toFixed(2);
-                card.querySelector('#rating').textContent = `Rating: ${shortRating}`;
-                card.querySelector('#release').textContent = `Release: ${movie.releaseDate}`;
-            }
-        });
-
     } catch (error) {
-        console.error('Error fetching TMDB data:', error);
+        console.error('Error fetching TMDB data (Horror):', error);
     }
 }();
+
 
 //Top Earning
-!async function() {
+!async function () {
     const options = {
         method: 'GET',
         headers: {
@@ -193,35 +185,31 @@ function getGenreName(genreId) {
     };
 
     try {
-        const response = await fetch('https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=revenue.desc', options);
+        const response = await fetch(
+            'https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=revenue.desc',
+            options
+        );
         const data = await response.json();
+        const moviesArray = data.results.slice(0, 5);
 
-        moviesArray = data.results.map(movie => {
-            return {
-                title: movie.title,
-                releaseDate: movie.release_date,
-                rating: movie.vote_average,
-                popularity: movie.popularity,
-                overview: movie.overview,
-                posterUrl: 'https://image.tmdb.org/t/p/w500' + movie.poster_path
-            };
+        const container = document.querySelector('.landingMovies:nth-of-type(3) .landingList');
+        const template = document.querySelector('#movieCardTemplate');
+
+        container.innerHTML = '';
+
+        moviesArray.forEach(movie => {
+            const card = template.content.cloneNode(true);
+            card.querySelector('img').src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+            card.querySelector('.card-title').textContent = movie.title;
+            card.querySelector('#release').innerHTML = `Release: <br>${movie.release_date}`;
+            card.querySelector('#rating').innerHTML = `Rating: <br>${movie.vote_average.toFixed(1)} <i class="fa-solid fa-star"></i>`;
+            container.appendChild(card);
         });
-
-        moviesArray.forEach((movie, i) => {
-            const card = topEarningCardsExp[i];
-            if (card) { 
-                card.querySelector('img').src = movie.posterUrl;
-                card.querySelector('.card-title').textContent = movie.title;
-                const shortRating = movie.rating.toFixed(2);
-                card.querySelector('#rating').textContent = `Rating: ${shortRating}`;
-                card.querySelector('#release').textContent = `Release: ${movie.releaseDate}`;
-            }
-        });
-
     } catch (error) {
         console.error('Error fetching TMDB data:', error);
     }
 }();
+
 
 //filterlogic
 document.addEventListener('DOMContentLoaded', () => {
@@ -245,8 +233,8 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = template.content.cloneNode(true);
             card.querySelector('img').src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
             card.querySelector('.card-title').textContent = movie.title;
-            card.querySelector('#release').textContent = `Release: ${movie.release_date}`;
-            card.querySelector('#rating').textContent = `Rating: ${movie.vote_average.toFixed(1)}`;
+            card.querySelector('#release').innerHTML = `Release: <br>${movie.release_date}`;
+            card.querySelector('#rating').innerHTML = `Rating: <br>${movie.vote_average.toFixed(1)} <i class="fa-solid fa-star"></i>`;
             container.appendChild(card)
         });        
     }
@@ -299,6 +287,42 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
+//HomePage Cards
+!async function () {
+    const options = {
+        method: 'GET',
+        headers: {
+            accept: 'application/json',
+            Authorization: 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIyNjQxYjVkZjM4OWQzNGNkNjA3NDAxYjhjMGFiNDY3MSIsIm5iZiI6MTc2MTE3ODkyNC4yODEsInN1YiI6IjY4Zjk3NTJjMWQ1MTQ1MzUzODQ4ZWZlOCIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.Lj9vtUp62zyRkE6p4x6o0aJm1mqbNyLiHk7wG3Ju4dA'
+        }
+    };
+
+    try {
+        const response = await fetch(
+            'https://api.themoviedb.org/3/trending/movie/week?region=ZA&language=en-US',
+            options
+        );
+        const data = await response.json();
+        const moviesArray = data.results.slice(0, 5);
+
+        const container = document.querySelector('.homeMovies:nth-of-type(1) .landingList');
+        const template = document.querySelector('#movieCardTemplate');
+
+        container.innerHTML = '';
+
+        moviesArray.forEach(movie => {
+            const card = template.content.cloneNode(true);
+            card.querySelector('img').src = `https://image.tmdb.org/t/p/w500${movie.poster_path}`;
+            card.querySelector('.card-title').textContent = movie.title;
+            card.querySelector('#release').innerHTML = `Release: <br>${movie.release_date}`;
+            card.querySelector('#rating').innerHTML = `Rating: <br>${movie.vote_average.toFixed(1)} <i class="fa-solid fa-star"></i>`;
+            container.appendChild(card);
+        });
+    } catch (error) {
+        console.error('Error fetching TMDB data (Trending South Africa):', error);
+    }
+}();
+
 //End of Troy's Stuff
 
 
@@ -312,100 +336,3 @@ loginBtn.addEventListener('click', () => {
 })
 
 
-// Sign in / sign up
-
-// Script.js - defensive toggle behaviour and top-level execution checks.
-// This file logs immediately, uses delegated click listening, and exposes helpers to debug loading.
-(function () {
-  // top-level log to show the file executed
-  try { console.log('Script.js (external) loaded: top-level log'); } catch (e) {}
-
-  // global error reporting
-  window.addEventListener('error', e => console.error('window error:', e && e.message ? e.message : e), true);
-  window.addEventListener('unhandledrejection', e => console.error('unhandled rejection:', e && e.reason ? e.reason : e), true);
-
-  function setActive(on) {
-    const container = document.querySelector('.SN-container');
-    if (!container) return console.warn('setActive: .SN-container not found');
-    if (on) container.classList.add('active'); else container.classList.remove('active');
-    console.log('setActive:', on, 'container.classList:', container.classList.toString());
-  }
-
-  // delegated click handler: handles clicks on current or future toggle buttons
-  function delegatedClickHandler(e) {
-    const target = e.target;
-    if (!target) return;
-    // walk up from the event target to find matching buttons
-    let el = target;
-    while (el && el !== document) {
-      if (el.matches && el.matches('.SN-register-btn')) {
-        e.preventDefault && e.preventDefault();
-        e.stopPropagation && e.stopPropagation();
-        console.log('delegatedClickHandler: register button activated');
-        setActive(true);
-        return;
-      }
-      if (el.matches && el.matches('.SN-login-btn')) {
-        e.preventDefault && e.preventDefault();
-        e.stopPropagation && e.stopPropagation();
-        console.log('delegatedClickHandler: login button activated');
-        setActive(false);
-        return;
-      }
-      el = el.parentElement;
-    }
-  }
-
-  // Attach delegated handler on capture phase to maximize chance of catching events
-  if (!document.__sn_delegation_attached) {
-    document.addEventListener('click', delegatedClickHandler, true);
-    document.__sn_delegation_attached = true;
-    console.log('Script.js: delegated click handler attached (capture).');
-  }
-
-  // Fallback pointerdown + elementFromPoint (helps if some overlay swallows pointer events)
-  if (!document.__sn_pointerdown_attached) {
-    document.addEventListener('pointerdown', function (ev) {
-      try {
-        const el = document.elementFromPoint(ev.clientX, ev.clientY);
-        if (!el) return;
-        let cur = el;
-        while (cur && cur !== document) {
-          if (cur.matches && cur.matches('.SN-register-btn')) {
-            ev.preventDefault && ev.preventDefault();
-            ev.stopPropagation && ev.stopPropagation();
-            console.log('pointerdown: register element found via elementFromPoint');
-            setActive(true);
-            return;
-          }
-          if (cur.matches && cur.matches('.SN-login-btn')) {
-            ev.preventDefault && ev.preventDefault();
-            ev.stopPropagation && ev.stopPropagation();
-            console.log('pointerdown: login element found via elementFromPoint');
-            setActive(false);
-            return;
-          }
-          cur = cur.parentElement;
-        }
-      } catch (e) {
-        console.warn('pointerdown fallback error', e);
-      }
-    }, { capture: true, passive: false });
-    document.__sn_pointerdown_attached = true;
-    console.log('Script.js: pointerdown fallback attached.');
-  }
-
-  // Expose debug helper to quickly inspect what's under the register button center
-  window.__SN_debugButtonAtPointer = function () {
-    const btn = document.querySelector('.SN-register-btn');
-    if (!btn) { console.warn('No .SN-register-btn on page'); return; }
-    const r = btn.getBoundingClientRect();
-    const cx = Math.round(r.left + r.width / 2);
-    const cy = Math.round(r.top + r.height / 2);
-    console.log('register button rect:', r);
-    console.log('coords checked:', { cx, cy }, 'elementFromPoint:', document.elementFromPoint(cx, cy));
-  };
-
-  // final ready log
-  console.log('Script.js: initialized.');
-})();
