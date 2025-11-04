@@ -425,6 +425,76 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+/* add to watchlist and mark as watched buttons logic */
+function getLocalList(key) {
+  const stored = localStorage.getItem(key);
+  return stored ? JSON.parse(stored) : [];
+}
+
+function saveLocalList(key, list) {
+  localStorage.setItem(key, JSON.stringify(list));
+}
+
+const movieTitle = document.querySelector(".hero-title")?.textContent.trim();
+const addWatchlistBtn = document.getElementById("add-watchlist");
+const markWatchedBtn = document.getElementById("mark-watched");
+
+let watchlist = getLocalList("watchlist");
+let watched = getLocalList("watched");
+
+function updateButtonStates() {
+  if (watchlist.includes(movieTitle)) {
+    addWatchlistBtn.textContent = "Added to Watchlist";
+    addWatchlistBtn.style.backgroundColor = "#CC0A73";
+    addWatchlistBtn.style.color = "white";
+  } else {
+    addWatchlistBtn.textContent = "Add to Watchlist";
+    addWatchlistBtn.style.backgroundColor = "transparent";
+    addWatchlistBtn.style.color = "#CC0A73";
+  }
+
+  if (watched.includes(movieTitle)) {
+    markWatchedBtn.textContent = "Watched ✔";
+    markWatchedBtn.style.backgroundColor = "gold";
+    markWatchedBtn.style.color = "black";
+  } else {
+    markWatchedBtn.textContent = "Mark as Watched";
+    markWatchedBtn.style.backgroundColor = "transparent";
+    markWatchedBtn.style.color = "gold";
+  }
+}
+
+if (addWatchlistBtn) {
+  addWatchlistBtn.addEventListener("click", () => {
+    if (!movieTitle) return;
+
+    if (watchlist.includes(movieTitle)) {
+      watchlist = watchlist.filter(m => m !== movieTitle);
+    } else {
+      watchlist.push(movieTitle);
+    }
+
+    saveLocalList("watchlist", watchlist);
+    updateButtonStates();
+  });
+}
+
+if (markWatchedBtn) {
+  markWatchedBtn.addEventListener("click", () => {
+    if (!movieTitle) return;
+
+    if (watched.includes(movieTitle)) {
+      watched = watched.filter(m => m !== movieTitle);
+    } else {
+      watched.push(movieTitle);
+    }
+
+    saveLocalList("watched", watched);
+    updateButtonStates();
+  });
+}
+
+updateButtonStates();
 
 
 //End of individual page
