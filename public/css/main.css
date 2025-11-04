@@ -190,6 +190,8 @@ nav {
 .watchlist-description {
   background-color: rgba(255, 255, 255, 0.80);
   border: #000000;
+  margin: 20px;
+  border-radius: 10px;
 }
 
 .watchlist-unwatched {
@@ -200,6 +202,12 @@ nav {
 
 .watchlist-unwatched h1 {
   font-family: "Audiowide", sans-serif;
+}
+
+#watchlist-filterSearch {
+  margin-top: 10px;
+  max-width: 97%;
+  margin-left: 10px;
 }
 
 /* Hero Section (Movie) */

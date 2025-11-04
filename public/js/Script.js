@@ -43,7 +43,7 @@ const topEarningCardsExp = [document.querySelector('#tE1'), document.querySelect
 //Troy's Functions
 function getGenreName(genreId) {
     const genre = genres.find(g => g.id === genreId);
-    console.log(genre.name);
+    // console.log(genre.name);
     return genre.name;
 }
 
@@ -387,19 +387,6 @@ function fetchMovieInfo(title){
         overlay.style.backgroundPosition = 'center'; 
         overlay.style.backgroundRepeat = 'no-repeat'; 
 
-        class Individual {
-            constructor(title,release_date,rating,genre,overview){
-        movie.title = title;
-        movie.release_date = release_date;
-        movie.vote_average = rating;
-        movie.genre_ids[0] = genre;
-        movie.overview = overview;
-            }            
-        };
-
-       
-console.log(Individual[0]);
-
         document.querySelector('.hero-title').textContent = movie.title;
         document.querySelector('#yor').textContent = movie.release_date;
         document.querySelector('#ageRestIND').textContent = movie.adult ? "18+" : "E - Everyone";
@@ -442,9 +429,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
 //Movie watchlist page
 
+class Individual {
+            constructor(title,release_date,rating,genre,overview){
+        movie.title = title;
+        movie.release_date = release_date;
+        movie.vote_average = rating;
+        movie.genre = genre;
+        movie.overview = overview;
+            }            
+        };
 
 
 
+const addWatchlist = document.getElementById('add-watchlist');
+
+addWatchlist.addEventListener('onclick', (e) => {
+    e.preventDefault();
+
+    const title = document.getElementById('.hero-title').value;
+    const release_date = document.getElementById('yor').value;
+    const vote_average = document.getElementById('ratingIND').value;
+    const genre = document.getElementById('signUpgenresINDPassword').value;
+    const overview = document.getElementById('hero-description').value;
+
+    const newIndividual = new Individual(title, release_date, vote_average,genre,overview);
+    
+    // let users = JSON.parse(localStorage.getItem('users')) || [];
+    
+    Individual.push(newIndividual);
+
+    // localStorage.setItem("individual", JSON.stringify(users));
+
+    console.log(Individual[0])
+});
 
 
 
