@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta name="author" content="Troy Evans 251096">
+  <meta name="author" content="Coenraad Lindholm 251142">
   <meta name="keywords" content="template, css, coding">
   <title>Movie Template</title>
 
@@ -26,25 +26,34 @@
 
 <body>
   <!-- Navigation -->
-  <nav class="navFlex">
-    <a href="../Index.html">
-      <img id="logo" src="../assets/img/logo.png" width="30%" style="padding: 1%; padding-left: 5%;" alt="logo" />
-    </a>
-
-    <div class="navFlex">
-      <h3><a href="../Index.html">Home</a></h3>
-      <h3><a href="../pages/explore.html">Explore</a></h3>
-      <h3><a href="../pages/watchlist.html" class="active">Watchlist</a></h3>
-      <h3><a href="../pages/about.html">About</a></h3>
-      <h3><a href="../pages/account.html">Account</a></h3>
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/public/Index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/public/pages/Movie Landing.html">Expolore</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/public/pages/Movie watchlist.html">Watchlist</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="/public/pages/Sign in - Sign up.html">Account</a>
+        </li>
+      </ul>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"/>
+        <button class="btn btn-outline-success" type="submit">Search</button>
+      </form>
     </div>
-
-    <div class="searchBar">
-      <i class="fa-solid fa-magnifying-glass" style="color: #3b3737; padding-right: 1.5%"></i>
-      <input type="text" id="searchControl" placeholder="Search" name="search" style="border: none" />
-      <div class="vertical-line"></div>
-    </div>
-  </nav>
+  </div>
+</nav>
 
   <!-- Hero Section -->
   <section class="hero">
@@ -98,15 +107,15 @@
   <footer class="footer">
     <div class="container-fluid row footerRow">
       <div class="container-fluid col-lg-3 col-sm-4 footerRed">
-        <img src="../assets/img/logo.png" width="100%" height="auto" style="padding-top: 5%;" alt="logo">
+        <img src="/public/assets/img/logo.png" width="100%" height="auto" style="padding-top: 5%;" alt="logo">
       </div>
 
       <div class="container-fluid col-lg-3 col-sm-4">
         <h3>Pages</h3>
         <br />
-        <p><a href="../Index.html">Home</a></p>
-        <p><a href="../pages/watchlist.html" class="active">Watchlist</a></p>
-        <p><a href="../pages/explore.html">Explore</a></p>
+        <p><a href="/public/Index.html">Home</a></p>
+        <p><a href="/public/pages/Movie watchlist.html" class="active">Watchlist</a></p>
+        <p><a href="/public/pages/Movie Landing.html">Explore</a></p>
         <p><a href="../pages/account.html">My Account</a></p>
       </div>
 
@@ -115,16 +124,16 @@
         <br />
         <div class="container-fluid row">
           <div class="container-fluid col footerCol">
-            <a href="#"><img src="../assets/img/icons8-instagram-64 (2).png" width="100%" height="auto" alt="ig" /></a>
+            <a href="#"><img src="/public/assets/img/icons8-instagram-64 (2).png" width="100%" height="auto" alt="ig" /></a>
           </div>
           <div class="container-fluid col footerCol">
-            <a href="#"><img src="../assets/img/icons8-x-64 (1).png" width="100%" height="auto" alt="x" /></a>
+            <a href="#"><img src="/public/assets/img/icons8-x-64 (1).png" width="100%" height="auto" alt="x" /></a>
           </div>
           <div class="container-fluid col footerCol">
-            <a href="#"><img src="../assets/img/icons8-tiktok-64.png" width="100%" height="auto" alt="tiktok" /></a>
+            <a href="#"><img src="/public/assets/img/icons8-tiktok-64.png" width="100%" height="auto" alt="tiktok" /></a>
           </div>
           <div class="container-fluid col footerCol">
-            <a href="#"><img src="../assets/img/icons8-facebook-64 (1).png" width="100%" height="auto" alt="fb" /></a>
+            <a href="#"><img src="/public/assets/img/icons8-facebook-64 (1).png" width="100%" height="auto" alt="fb" /></a>
           </div>
         </div>
       </div>
@@ -151,5 +160,6 @@
           crossorigin="anonymous"></script>
   <script src="https://kit.fontawesome.com/b2e0418e70.js" crossorigin="anonymous"></script>
   <script src="../js/Script.js"></script>
+  <script src="/public/js/Firebase.js"></script>
 </body>
 </html>
