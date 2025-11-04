@@ -357,7 +357,7 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error('Error fetching Mystery movies:', error);
     }
 }();
-
+//End of Troy's Stuff
 
 //individual movie page stuff
 let movieName = '';
@@ -387,19 +387,38 @@ function fetchMovieInfo(title){
         overlay.style.backgroundPosition = 'center'; 
         overlay.style.backgroundRepeat = 'no-repeat'; 
 
+        class Individual {
+            constructor(title,release_date,rating,genre,overview){
+        movie.title = title;
+        movie.release_date = release_date;
+        movie.vote_average = rating;
+        movie.genre_ids[0] = genre;
+        movie.overview = overview;
+            }            
+        };
+
+       
+console.log(Individual[0]);
+
         document.querySelector('.hero-title').textContent = movie.title;
         document.querySelector('#yor').textContent = movie.release_date;
         document.querySelector('#ageRestIND').textContent = movie.adult ? "18+" : "E - Everyone";
         document.querySelector('#ratingIND').textContent = `Rating: ${movie.vote_average}`;
         document.querySelector('#genresIND').textContent = `${getGenreName(movie.genre_ids[0])}`; 
-        document.querySelector('.hero-description').textContent = movie.overview
+        document.querySelector('.hero-description').textContent = movie.overview;
+
+        
         
 
     } catch (error) {
         console.error('Error fetching TMDB data (indivpage):', error);
     }
+
+    
 }();
 }
+
+
 
 document.body.addEventListener('click', (e) => {
     const card = e.target.closest('.card-img-top');
@@ -419,9 +438,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+//End of individual page
+
+//Movie watchlist page
 
 
-//End of Troy's Stuff
+
+
 
 
 
