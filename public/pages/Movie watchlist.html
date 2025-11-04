@@ -225,6 +225,37 @@
         </div>
       </div>
     </footer>
+    <script>
+document.addEventListener('DOMContentLoaded', () => {
+  const container = document.querySelector('.watchlist-unwatched .landingList');
+  const watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+
+  container.innerHTML = ''; // Clear old placeholder cards
+
+  watchlist.forEach(movie => {
+    const card = document.createElement('div');
+    card.classList.add('col');
+
+    card.innerHTML = `
+      <div class="h-100">
+        <img src="../assets/img/placeholder-poster.jpg" class="card-img-top" alt="${movie.title}" />
+        <div class="card-body">
+          <h5 class="card-title">${movie.title}</h5>
+          <div class="row row-cols-2">
+            <p class="card-text">${movie.release_date}</p>
+            <p class="card-text">${movie.rating}</p>
+          </div>
+          <p class="text-muted">${movie.genre}</p>
+          <p class="small">${movie.overview}</p>
+        </div>
+      </div>
+    `;
+
+    container.appendChild(card);
+  });
+});
+</script>
+
     <script
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"

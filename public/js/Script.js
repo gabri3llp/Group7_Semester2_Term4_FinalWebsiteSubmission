@@ -502,36 +502,42 @@ updateButtonStates();
 //Movie watchlist page
 
 class Individual {
-            constructor(title,release_date,rating,genre,overview){
-        Individual.title = title;
-        Individual.release_date = release_date;
-        Individual.vote_average = rating;
-        Individual.genre = genre;
-        Individual.overview = overview;
-            }            
-        };
+  constructor(title, release_date, rating, genre, overview) {
+    this.title = title;
+    this.release_date = release_date;
+    this.rating = rating;
+    this.genre = genre;
+    this.overview = overview;
+  }
+}
+
 
 
 
 const addWatchlist = document.getElementById('add-watchlist');
 
 addWatchlist.addEventListener('click', (e) => {
-    e.preventDefault();
+  e.preventDefault();
 
-    const title = document.querySelector('.hero-title').value;
-    const release_date = document.getElementById('yor').value;
-    const vote_average = document.getElementById('ratingIND').value;
-    const genre = document.getElementById('ratingIND').value;
-    const overview = document.querySelector('.hero-description').value;
+  const title = document.querySelector('.hero-title').textContent.trim();
+const release_date = document.getElementById('yor').textContent.trim();
+const vote_average = document.getElementById('ratingIND').textContent.trim();
+const genre = document.getElementById('genresIND').textContent.trim();
+const overview = document.querySelector('.hero-description').textContent.trim();
 
-    const newIndividual = new Individual(title, release_date, vote_average,genre,overview);
-       
-    //Individual.push(newIndividual);
+  const newIndividual = new Individual(title, release_date, vote_average, genre, overview);
 
-    
+  
+  const watchlist = JSON.parse(localStorage.getItem('watchlist')) || [];
+  watchlist.push(newIndividual);
+  localStorage.setItem('watchlist', JSON.stringify(watchlist));
 
-    console.log(release_date);
+  
+  window.location.href = window.location.pathname.includes("/pages/")
+    ? "Movie watchlist.html"
+    : "pages/Movie watchlist.html";
 });
+
 
 
 
